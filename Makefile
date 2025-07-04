@@ -1,5 +1,5 @@
 CC = cc -Wall -Werror -Wextra -MMD -MP
-NAME = pushswap
+NAME = push_swap
 SRC_PATH = src/
 OBJ_PATH = obj/
 LIBFT_PATH = ./libft/
