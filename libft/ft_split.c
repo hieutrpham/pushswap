@@ -6,34 +6,19 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 11:15:49 by trupham           #+#    #+#             */
-/*   Updated: 2025/04/26 23:08:07 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/04 14:39:29 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_count_word(const char *s, char c)
+void	free_split(char **arr)
 {
-	int	word_count;
 	int	i;
-	int	flag;
 
-	flag = 0;
 	i = 0;
-	word_count = 0;
-	while (s[i] && s[i] == c)
-		i++;
-	while (s[i])
-	{
-		if (s[i] != c && flag == 0)
-		{
-			flag = 1;
-			word_count++;
-		}
-		else if (s[i] == c)
-			flag = 0;
-		i++;
-	}
-	return (word_count);
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
 }
 
 static int	ft_free(char **arr, char **curr)
