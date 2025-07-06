@@ -1,4 +1,4 @@
-*.vim
+push_swap
 *.json
 .cache
 # Prerequisites

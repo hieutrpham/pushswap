@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/04 07:45:38 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/06 15:14:58 by trupham          ###   ########.fr       */
+/*   Created: 2025/07/06 15:14:17 by trupham           #+#    #+#             */
+/*   Updated: 2025/07/06 15:14:41 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "../include/push_swap.h"
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdbool.h>
-#include "../libft/libft.h"
+void usage()
+{
+	ft_putendl_fd("Usage: ./push_swap 1 2 3 or ./push_swap '1 2 3'", 2);
+}
 
-void quicksort(int arr[], int low, int high);
-
-//======errors.c======//
-bool check_errors(int ac, char **av);
-
-//======utils.c======//
-void usage();
-#endif
