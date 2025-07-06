@@ -14,7 +14,7 @@ else
   set shortmess=aoO
 endif
 badd +17 src/main.c
-badd +14 Makefile
+badd +17 Makefile
 badd +53 libft/libft.h
 badd +14 libft/ft_split.c
 badd +14 libft/ft_count_word.c
@@ -22,9 +22,9 @@ badd +53 libft/Makefile
 badd +26 include/push_swap.h
 badd +2 term://~/hive/pushswap//350770:/usr/bin/fish
 badd +6 src/quicksort.c
-badd +10 TODO.md
-badd +28 libft/ft_atoi.c
-badd +32 src/errors.c
+badd +7 TODO.md
+badd +29 libft/ft_atoi.c
+badd +37 src/errors.c
 badd +11 src/parser.c
 badd +17 src/utils.c
 argglobal
@@ -55,9 +55,9 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 31 + 32) / 65)
+exe '1resize ' . ((&lines * 44 + 32) / 65)
 exe 'vert 1resize ' . ((&columns * 116 + 120) / 240)
-exe '2resize ' . ((&lines * 30 + 32) / 65)
+exe '2resize ' . ((&lines * 17 + 32) / 65)
 exe 'vert 2resize ' . ((&columns * 116 + 120) / 240)
 exe 'vert 3resize ' . ((&columns * 123 + 120) / 240)
 argglobal
@@ -72,12 +72,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 15 - ((14 * winheight(0) + 15) / 31)
+let s:l = 18 - ((17 * winheight(0) + 22) / 44)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 15
-normal! 0
+keepjumps 18
+normal! 020|
 wincmd w
 argglobal
 if bufexists(fnamemodify("TODO.md", ":p")) | buffer TODO.md | else | edit TODO.md | endif
@@ -95,12 +95,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 10 - ((9 * winheight(0) + 15) / 30)
+let s:l = 4 - ((3 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 10
-normal! 049|
+keepjumps 4
+normal! 015|
 wincmd w
 argglobal
 if bufexists(fnamemodify("src/errors.c", ":p")) | buffer src/errors.c | else | edit src/errors.c | endif
@@ -118,17 +118,17 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 13 - ((12 * winheight(0) + 31) / 62)
+let s:l = 1 - ((0 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 13
-normal! 0
+keepjumps 1
+normal! 05|
 wincmd w
 3wincmd w
-exe '1resize ' . ((&lines * 31 + 32) / 65)
+exe '1resize ' . ((&lines * 44 + 32) / 65)
 exe 'vert 1resize ' . ((&columns * 116 + 120) / 240)
-exe '2resize ' . ((&lines * 30 + 32) / 65)
+exe '2resize ' . ((&lines * 17 + 32) / 65)
 exe 'vert 2resize ' . ((&columns * 116 + 120) / 240)
 exe 'vert 3resize ' . ((&columns * 123 + 120) / 240)
 tabnext
@@ -163,12 +163,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 26 - ((25 * winheight(0) + 31) / 62)
+let s:l = 27 - ((26 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 26
-normal! 014|
+keepjumps 27
+normal! 013|
 wincmd w
 argglobal
 if bufexists(fnamemodify("Makefile", ":p")) | buffer Makefile | else | edit Makefile | endif
@@ -186,12 +186,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 15 - ((14 * winheight(0) + 31) / 62)
+let s:l = 17 - ((16 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 15
-normal! 09|
+keepjumps 17
+normal! 0
 wincmd w
 exe 'vert 1resize ' . ((&columns * 119 + 120) / 240)
 exe 'vert 2resize ' . ((&columns * 120 + 120) / 240)
@@ -227,11 +227,11 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 28 - ((27 * winheight(0) + 31) / 62)
+let s:l = 29 - ((28 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 28
+keepjumps 29
 normal! 0
 wincmd w
 argglobal

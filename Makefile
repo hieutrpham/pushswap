@@ -11,6 +11,7 @@ RESET := \033[0m
 
 SRC = main.c \
 		errors.c \
+		utils.c \
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
