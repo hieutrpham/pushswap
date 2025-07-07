@@ -17,12 +17,13 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "../libft/libft.h"
-
+#include <limits.h>
 void quicksort(int arr[], int low, int high);
 
 //======errors.c======//
-bool check_errors(int ac, char **av);
+bool is_correct_input(int ac, char **av);
 bool check_dup(int *arr, int size);
+bool is_valid_int_limit(char *str);
 
 //======utils.c======//
 void usage();

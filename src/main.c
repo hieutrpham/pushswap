@@ -13,10 +13,7 @@
 
 int main(int ac, char **av) 
 {
-	// if (!check_errors(ac, av))
-	// 	return EXIT_FAILURE;
-	check_errors(ac, av);
-	int arr[] = {2,1,3,6, 5, 4};
-	ft_printf("%d\n", check_dup(arr, 6));
+	if (!is_correct_input(ac, av))
+		return EXIT_FAILURE;
 	return EXIT_SUCCESS;
 }

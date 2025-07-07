@@ -14,7 +14,7 @@
 
 /* @brief: check if a string can be converted to interger
  */
-bool check_digit(char *str)
+bool is_valid_int_str(char *str)
 {
 	int i;
 
@@ -27,9 +27,13 @@ bool check_digit(char *str)
 			return false;
 		i++;
 	}
+	if (!is_valid_int_limit(str))
+		return (false);
 	return true;
 }
-bool check_split(char *str)
+/* @brief: if ac == 2, split the string argv and check for error
+ */
+bool is_valid_split(char *str)
 {
 	char **split;
 	int i;
@@ -42,7 +46,7 @@ bool check_split(char *str)
 		return false;
 	while (split[i])
 	{
-		if (!check_digit(split[i]))
+		if (!is_valid_int_str(split[i]))
 			return (ft_putendl_fd("Error", 2), false);
 		i++;
 	}
@@ -50,8 +54,8 @@ bool check_split(char *str)
 	return true;
 }
 // @brief: check for existance of duplicates
-// @return: false if there are dups, true if not
-bool check_dup(int *arr, int size)
+// @return: true if there are dups, false if not
+bool is_there_dup(int *arr, int size)
 {
 	int i;
 	int j;
@@ -63,25 +67,38 @@ bool check_dup(int *arr, int size)
 		while (j <size)
 		{
 			if (arr[i] == arr[j])
-				return false;
+				return true;
 			j++;
 		}
 		i++;
 	}
+	return false;
+}
+/* @brief: check string can be converted to a valid int within bound
+ */
+bool is_valid_int_limit(char *str)
+{
+	long nbr;
+
+	nbr = ft_atol(str);
+	if (nbr > INT_MAX || nbr < INT_MIN)
+		return false;
 	return true;
 }
-bool check_errors(int ac, char **av)
+/* @brief: loop through the argv to check acceptable inputs eg. 1 2 3 and "1 2 3"
+ */
+bool is_correct_input(int ac, char **av)
 {
 	if (ac == 2)
 	{
-		if (!check_split(av[1]))
+		if (!is_valid_split(av[1]))
 			return false;
 	}
 	else if (ac > 2)
 	{
 		while (ac >= 2)
 		{
-			if (!check_digit(av[ac - 1]))
+			if (!is_valid_int_str(av[ac - 1]))
 				return (ft_putendl_fd("Error", 2), false);
 			ac--;
 		}

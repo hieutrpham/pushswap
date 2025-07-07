@@ -46,3 +46,26 @@ int	ft_atoi(const char *nptr)
 	}
 	return (atoi * sign);
 }
+
+long	ft_atol(const char *nptr)
+{
+	int	i;
+	int	sign;
+	long	atol;
+
+	atol = 0;
+	i = 0;
+	sign = 1;
+	while (isspace(nptr[i]))
+		i++;
+	if (nptr[i] == '+')
+		i++;
+	else if (nptr[i] == '-')
+	{
+		sign = -sign;
+		i++;
+	}
+	while (nptr[i] && ft_isdigit(nptr[i]))
+		atol = atol * 10 + (nptr[i++] - '0');
+	return (atol * sign);
+}
