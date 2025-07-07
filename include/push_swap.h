@@ -22,6 +22,7 @@ void quicksort(int arr[], int low, int high);
 
 //======errors.c======//
 bool check_errors(int ac, char **av);
+bool check_dup(int *arr, int size);
 
 //======utils.c======//
 void usage();

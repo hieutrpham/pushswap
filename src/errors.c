@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-/*check if a string can be converted to interger
+/* @brief: check if a string can be converted to interger
  */
 bool check_digit(char *str)
 {
@@ -35,6 +35,8 @@ bool check_split(char *str)
 	int i;
 
 	i = 0;
+	if (ft_strlen(str) == 0)
+		return (false);
 	split = ft_split(str, ' ');
 	if (!split)
 		return false;
@@ -45,6 +47,27 @@ bool check_split(char *str)
 		i++;
 	}
 	free_split(split);
+	return true;
+}
+// @brief: check for existance of duplicates
+// @return: false if there are dups, true if not
+bool check_dup(int *arr, int size)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < size - 1) 
+	{
+		j = i + 1;
+		while (j <size)
+		{
+			if (arr[i] == arr[j])
+				return false;
+			j++;
+		}
+		i++;
+	}
 	return true;
 }
 bool check_errors(int ac, char **av)
@@ -64,6 +87,6 @@ bool check_errors(int ac, char **av)
 		}
 	}
 	else
-		usage();
+		return false;
 	return true;
 }
