@@ -12,6 +12,18 @@
 
 #include "../include/push_swap.h"
 
+/* @brief: check string can be converted to a valid int within bound
+ */
+bool is_valid_int_limit(char *str)
+{
+	long nbr;
+
+	nbr = ft_atol(str);
+	if (nbr > INT_MAX || nbr < INT_MIN)
+		return false;
+	return true;
+}
+
 /* @brief: check if a string can be converted to interger
  */
 bool is_valid_int_str(char *str)
@@ -55,7 +67,7 @@ bool is_valid_split(char *str)
 }
 // @brief: check for existance of duplicates
 // @return: true if there are dups, false if not
-bool is_there_dup(int *arr, int size)
+void check_dup(int *arr, int size)
 {
 	int i;
 	int j;
@@ -67,43 +79,30 @@ bool is_there_dup(int *arr, int size)
 		while (j <size)
 		{
 			if (arr[i] == arr[j])
-				return true;
+				exit_error();
 			j++;
 		}
 		i++;
 	}
-	return false;
-}
-/* @brief: check string can be converted to a valid int within bound
- */
-bool is_valid_int_limit(char *str)
-{
-	long nbr;
-
-	nbr = ft_atol(str);
-	if (nbr > INT_MAX || nbr < INT_MIN)
-		return false;
-	return true;
 }
 /* @brief: loop through the argv to check acceptable inputs eg. 1 2 3 and "1 2 3"
  */
-bool is_correct_input(int ac, char **av)
+void check_input(int ac, char **av)
 {
 	if (ac == 2)
 	{
 		if (!is_valid_split(av[1]))
-			return false;
+			exit(EXIT_FAILURE);
 	}
 	else if (ac > 2)
 	{
 		while (ac >= 2)
 		{
 			if (!is_valid_int_str(av[ac - 1]))
-				return (ft_putendl_fd("Error", 2), false);
+				exit_error();
 			ac--;
 		}
 	}
 	else
-		return false;
-	return true;
+		exit(EXIT_FAILURE);
 }

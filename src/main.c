@@ -13,7 +13,6 @@
 
 int main(int ac, char **av) 
 {
-	if (!is_correct_input(ac, av))
-		return EXIT_FAILURE;
+	check_input(ac, av);
 	return EXIT_SUCCESS;
 }

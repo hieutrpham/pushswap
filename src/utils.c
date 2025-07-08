@@ -12,8 +12,9 @@
 
 #include "../include/push_swap.h"
 
-void usage()
+void exit_error()
 {
-	ft_putendl_fd("Usage: ./push_swap 1 2 3 or ./push_swap '1 2 3'", 2);
+	ft_putendl_fd("Error", 2);
+	exit(EXIT_FAILURE);
 }
 
