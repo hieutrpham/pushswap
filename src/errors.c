@@ -59,7 +59,7 @@ bool is_valid_split(char *str)
 	while (split[i])
 	{
 		if (!is_valid_int_str(split[i]))
-			return (ft_putendl_fd("Error", 2), false);
+			return (false);
 		i++;
 	}
 	free_split(split);
@@ -89,11 +89,8 @@ void check_dup(int *arr, int size)
  */
 void check_input(int ac, char **av)
 {
-	if (ac == 2)
-	{
-		if (!is_valid_split(av[1]))
-			exit(EXIT_FAILURE);
-	}
+	if (ac == 2 && !is_valid_split(av[1]))
+		exit_error();
 	else if (ac > 2)
 	{
 		while (ac >= 2)
