@@ -13,7 +13,6 @@
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
-#include <unistd.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include "../libft/libft.h"
@@ -30,6 +29,10 @@ typedef struct s_stack {
 	int len;
 } t_stack;
 
+/************************parser.c**********************
+* helper functions to handle parsing
+******************************************************/
+
 /************************errors.c**********************
 * helper functions to handle errors
 ******************************************************/
@@ -37,7 +40,7 @@ void check_input(int ac, char **av);
 void check_dup(int *arr, int size);
 
 /************************utils.c**********************
-* helper functions
+* others helper functions i don't know where to put
 ******************************************************/
 void exit_error();
 #endif

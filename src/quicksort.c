@@ -12,29 +12,53 @@
 
 #include "../include/push_swap.h"
 
-void swap(int* a, int* b) {
+/* @brief: check whether an int array is sorted in ascending order
+ * @return: true if sorted, false if not
+ */
+bool is_sorted(int *arr, int size)
+{
+	int i = 0;
+	int j = 0;
+
+	if (size <= 1)
+		return true;
+	while (i < size - 1)
+	{
+		j = i + 1;
+		if (arr[i] > arr[j])
+			return false;
+		i++;
+	}
+	return true;
+}
+
+static void swap(int* a, int* b) {
     int t = *a;
     *a = *b;
     *b = t;
 }
-int partition(int arr[], int low, int high) {
+
+static int partition(int *arr, int low, int high) {
     int pivot = arr[high];
-    printf("pivot: %d\n", pivot);
     int i = low - 1;
-    for (int j = low; j <= high - 1; j++) {
+	int j = low;
+
+	while (j <= high - 1)
+	{
         if (arr[j] < pivot) {
             i++;
-            printf("arr[i]: %d, arr[j]: %d\n", arr[i], arr[j]);
             swap(&arr[i], &arr[j]);
         }
-    }
-    printf("i+1: %d, arr[i+1]: %d, arr[high]: %d\n", i+1, arr[i+1], arr[high]);
+	}
     swap(&arr[i + 1], &arr[high]);  
     return i + 1;
 }
-void quicksort(int arr[], int low, int high) {
+
+void quicksort(int *arr, int low, int high) {
+	int pi;
+
     if (low < high) {
-        int pi = partition(arr, low, high);
+		pi = partition(arr, low, high);
         quicksort(arr, low, pi - 1);
         quicksort(arr, pi + 1, high);
     }

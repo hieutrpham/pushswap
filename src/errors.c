@@ -14,7 +14,7 @@
 
 /* @brief: check string can be converted to a valid int within bound
  */
-bool is_valid_int_limit(char *str)
+static bool is_valid_int_limit(char *str)
 {
 	long nbr;
 
@@ -26,7 +26,7 @@ bool is_valid_int_limit(char *str)
 
 /* @brief: check if a string can be converted to interger
  */
-bool is_valid_int_str(char *str)
+static bool is_valid_int_str(char *str)
 {
 	int i;
 
@@ -45,7 +45,7 @@ bool is_valid_int_str(char *str)
 }
 /* @brief: if ac == 2, split the string argv and check for error
  */
-bool is_valid_split(char *str)
+static bool is_valid_split(char *str)
 {
 	char **split;
 	int i;
@@ -65,8 +65,8 @@ bool is_valid_split(char *str)
 	free_split(split);
 	return true;
 }
-// @brief: check for existance of duplicates
-// @return: true if there are dups, false if not
+// @brief: check for existance of duplicates in an int array
+// @return: exit the program if there is dup
 void check_dup(int *arr, int size)
 {
 	int i;

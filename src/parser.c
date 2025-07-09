@@ -10,7 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int parser(int ac, char **av)
+#include "../include/push_swap.h"
+#include <stdlib.h>
+
+int *build_from_str(char *str)
 {
-	return 0;
+	char **split;
+	int *arr;
+
+	arr = malloc(sizeof(int) * ft_count_word(str, ' '));
+	split = ft_split(str, ' ');
+	if (!split)
+		exit(EXIT_FAILURE);
+	return arr;
+}
+/* if malloc fail, exit program right away since we can't do anything
+ * without a stack as opposed to the usual return NULL
+ */
+t_stack *build_stack(int ac, char **av)
+{
+	t_stack *stack;
+
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		exit(EXIT_FAILURE);
+	if (ac == 2)
+	{
+		stack->arr = build_from_str(av[1]);
+	}
+	return stack;
 }

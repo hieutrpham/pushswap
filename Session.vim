@@ -13,22 +13,22 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +14 src/main.c
-badd +18 Makefile
-badd +49 libft/libft.h
+badd +16 src/main.c
+badd +15 Makefile
+badd +16 libft/libft.h
 badd +14 libft/ft_split.c
 badd +14 libft/ft_count_word.c
 badd +53 libft/Makefile
-badd +36 include/push_swap.h
+badd +45 include/push_swap.h
 badd +2 term://~/hive/pushswap//350770:/usr/bin/fish
-badd +6 src/quicksort.c
-badd +5 TODO.md
-badd +50 libft/ft_atoi.c
-badd +94 src/errors.c
-badd +15 src/parser.c
-badd +17 src/utils.c
+badd +34 src/quicksort.c
+badd +21 TODO.md
+badd +1 libft/ft_atoi.c
+badd +11 src/errors.c
+badd +25 src/parser.c
+badd +18 src/utils.c
 badd +2 libft/ft_calloc.c
-badd +0 src/util
+badd +1 src/util
 argglobal
 %argdel
 $argadd src/main.c
@@ -36,13 +36,17 @@ set stal=2
 tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
-edit src/main.c
+edit src/errors.c
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
 1wincmd h
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
 wincmd w
 let &splitbelow = s:save_splitbelow
 let &splitright = s:save_splitright
@@ -53,10 +57,13 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 112 + 112) / 225)
-exe 'vert 2resize ' . ((&columns * 112 + 112) / 225)
+exe '1resize ' . ((&lines * 49 + 32) / 65)
+exe 'vert 1resize ' . ((&columns * 119 + 120) / 240)
+exe '2resize ' . ((&lines * 12 + 32) / 65)
+exe 'vert 2resize ' . ((&columns * 119 + 120) / 240)
+exe 'vert 3resize ' . ((&columns * 120 + 120) / 240)
 argglobal
-balt libft/ft_count_word.c
+balt src/main.c
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -67,19 +74,19 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 18 - ((17 * winheight(0) + 29) / 59)
+let s:l = 52 - ((38 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 18
+keepjumps 52
 normal! 0
 wincmd w
 argglobal
-if bufexists(fnamemodify("src/errors.c", ":p")) | buffer src/errors.c | else | edit src/errors.c | endif
+if bufexists(fnamemodify("TODO.md", ":p")) | buffer TODO.md | else | edit TODO.md | endif
 if &buftype ==# 'terminal'
-  silent file src/errors.c
+  silent file TODO.md
 endif
-balt src/utils.c
+balt src/main.c
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -90,16 +97,42 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 94 - ((23 * winheight(0) + 29) / 59)
+let s:l = 13 - ((5 * winheight(0) + 6) / 12)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 94
-normal! 029|
+keepjumps 13
+normal! 03|
 wincmd w
-2wincmd w
-exe 'vert 1resize ' . ((&columns * 112 + 112) / 225)
-exe 'vert 2resize ' . ((&columns * 112 + 112) / 225)
+argglobal
+if bufexists(fnamemodify("src/parser.c", ":p")) | buffer src/parser.c | else | edit src/parser.c | endif
+if &buftype ==# 'terminal'
+  silent file src/parser.c
+endif
+balt src/errors.c
+setlocal foldmethod=manual
+setlocal foldexpr=0
+setlocal foldmarker={{{,}}}
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldenable
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 1 - ((0 * winheight(0) + 31) / 62)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 0
+wincmd w
+3wincmd w
+exe '1resize ' . ((&lines * 49 + 32) / 65)
+exe 'vert 1resize ' . ((&columns * 119 + 120) / 240)
+exe '2resize ' . ((&lines * 12 + 32) / 65)
+exe 'vert 2resize ' . ((&columns * 119 + 120) / 240)
+exe 'vert 3resize ' . ((&columns * 120 + 120) / 240)
 tabnext
 edit include/push_swap.h
 let s:save_splitbelow = &splitbelow
@@ -118,8 +151,10 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 111 + 112) / 225)
-exe 'vert 2resize ' . ((&columns * 113 + 112) / 225)
+exe '1resize ' . ((&lines * 61 + 32) / 65)
+exe 'vert 1resize ' . ((&columns * 120 + 120) / 240)
+exe '2resize ' . ((&lines * 61 + 32) / 65)
+exe 'vert 2resize ' . ((&columns * 119 + 120) / 240)
 argglobal
 balt Makefile
 setlocal foldmethod=manual
@@ -132,12 +167,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 36 - ((34 * winheight(0) + 29) / 59)
+let s:l = 34 - ((32 * winheight(0) + 30) / 61)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 36
-normal! 018|
+keepjumps 34
+normal! 0
 wincmd w
 argglobal
 if bufexists(fnamemodify("Makefile", ":p")) | buffer Makefile | else | edit Makefile | endif
@@ -155,15 +190,17 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 14 - ((12 * winheight(0) + 29) / 59)
+let s:l = 15 - ((14 * winheight(0) + 30) / 61)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 14
-normal! 0
+keepjumps 15
+normal! 018|
 wincmd w
-exe 'vert 1resize ' . ((&columns * 111 + 112) / 225)
-exe 'vert 2resize ' . ((&columns * 113 + 112) / 225)
+exe '1resize ' . ((&lines * 61 + 32) / 65)
+exe 'vert 1resize ' . ((&columns * 120 + 120) / 240)
+exe '2resize ' . ((&lines * 61 + 32) / 65)
+exe 'vert 2resize ' . ((&columns * 119 + 120) / 240)
 tabnext
 edit libft/ft_atoi.c
 let s:save_splitbelow = &splitbelow
@@ -182,8 +219,10 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 112 + 112) / 225)
-exe 'vert 2resize ' . ((&columns * 112 + 112) / 225)
+exe '1resize ' . ((&lines * 61 + 32) / 65)
+exe 'vert 1resize ' . ((&columns * 120 + 120) / 240)
+exe '2resize ' . ((&lines * 61 + 32) / 65)
+exe 'vert 2resize ' . ((&columns * 119 + 120) / 240)
 argglobal
 balt libft/libft.h
 setlocal foldmethod=manual
@@ -196,11 +235,11 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 50 - ((12 * winheight(0) + 29) / 59)
+let s:l = 30 - ((29 * winheight(0) + 30) / 61)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 50
+keepjumps 30
 normal! 0
 wincmd w
 argglobal
@@ -219,15 +258,17 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 49 - ((17 * winheight(0) + 29) / 59)
+let s:l = 16 - ((15 * winheight(0) + 30) / 61)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 49
+keepjumps 16
 normal! 0
 wincmd w
-exe 'vert 1resize ' . ((&columns * 112 + 112) / 225)
-exe 'vert 2resize ' . ((&columns * 112 + 112) / 225)
+exe '1resize ' . ((&lines * 61 + 32) / 65)
+exe 'vert 1resize ' . ((&columns * 120 + 120) / 240)
+exe '2resize ' . ((&lines * 61 + 32) / 65)
+exe 'vert 2resize ' . ((&columns * 119 + 120) / 240)
 tabnext 1
 set stal=1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

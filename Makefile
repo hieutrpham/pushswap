@@ -12,6 +12,7 @@ RESET := \033[0m
 SRC = main.c \
 		errors.c \
 		utils.c \
+		parser.c \
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
