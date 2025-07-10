@@ -22,6 +22,7 @@ int main(int ac, char **av)
 	{
 		printf("%d\n", stack_a->arr[i]);
 	}
+	check_dup(stack_a);
 	destroy_stack(stack_a);
 	return EXIT_SUCCESS;
 }

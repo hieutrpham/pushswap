@@ -39,7 +39,7 @@ void destroy_stack(t_stack *stack);
 * helper functions to handle errors
 ******************************************************/
 void check_input(int ac, char **av);
-void check_dup(int *arr, int size);
+void check_dup(t_stack *stack);
 
 /************************utils.c**********************
 * others helper functions i don't know where to put

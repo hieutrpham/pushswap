@@ -67,19 +67,22 @@ static bool is_valid_split(char *str)
 }
 // @brief: check for existance of duplicates in an int array
 // @return: exit the program if there is dup
-void check_dup(int *arr, int size)
+void check_dup(t_stack *stack)
 {
 	int i;
 	int j;
 
 	i = 0;
-	while (i < size - 1) 
+	while (i < stack->size - 1) 
 	{
 		j = i + 1;
-		while (j <size)
+		while (j <stack->size)
 		{
-			if (arr[i] == arr[j])
+			if (stack->arr[i] == stack->arr[j])
+			{
+				destroy_stack(stack);
 				exit_error();
+			}
 			j++;
 		}
 		i++;
