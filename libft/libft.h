@@ -17,12 +17,7 @@
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
+# include <stdbool.h>
 
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
@@ -64,6 +59,12 @@ void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
 /* linked list functions */
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
+
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new_node);
 int					ft_lstsize(t_list *lst);
@@ -98,4 +99,8 @@ int					ft_puthex(unsigned long n, char c);
 int					ft_putptr(void *ptr);
 int					ft_ulen(unsigned int n);
 int					ft_ilen(int n);
+
+/* sort functions */
+bool is_sorted(int *arr, int size);
+void quicksort(int *arr, int low, int high);
 #endif

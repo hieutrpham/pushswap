@@ -16,6 +16,5 @@
         * size of array is ac-1
         * use ft_atol to convert string to int and store the int in the alloc'ed array
         * check if the array is already sorted. exit early if so
-* likely move quicksort to libft?
 
 ## Algo

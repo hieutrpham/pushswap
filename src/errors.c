@@ -101,5 +101,5 @@ void check_input(int ac, char **av)
 		}
 	}
 	else
-		exit(EXIT_FAILURE);
+		return;
 }

@@ -12,6 +12,8 @@
 
 #include "libft.h"
 
+/*@brief: allocate n blocks of memory for sizeof(size)
+ */
 void	*ft_calloc(size_t n, size_t size)
 {
 	unsigned char	*ptr;

@@ -32,7 +32,9 @@ typedef struct s_stack {
 /************************parser.c**********************
 * helper functions to handle parsing
 ******************************************************/
-
+t_stack *build_stack(int ac, char **av);
+t_stack *build_empty_stack(unsigned int size);
+void destroy_stack(t_stack *stack);
 /************************errors.c**********************
 * helper functions to handle errors
 ******************************************************/

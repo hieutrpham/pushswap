@@ -14,5 +14,14 @@
 int main(int ac, char **av) 
 {
 	check_input(ac, av);
+	t_stack *stack_a;
+
+	stack_a = build_stack(ac, av);
+	printf("stack size: %d\n", stack_a->size);
+	for (int i = 0; i < stack_a->size; i++)
+	{
+		printf("%d\n", stack_a->arr[i]);
+	}
+	destroy_stack(stack_a);
 	return EXIT_SUCCESS;
 }
