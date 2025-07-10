@@ -98,12 +98,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 19 - ((8 * winheight(0) + 5) / 10)
+let s:l = 15 - ((4 * winheight(0) + 5) / 10)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 19
-normal! 029|
+keepjumps 15
+normal! 012|
 wincmd w
 argglobal
 if bufexists(fnamemodify("src/errors.c", ":p")) | buffer src/errors.c | else | edit src/errors.c | endif

@@ -5,7 +5,7 @@
         * check for not intergers (isdigit). strings: "", " ", "1 xs", ----23 4 ✅
         * check for INT_MAX, INT_MIN ✅
         * display `Error\n` on stderr 2 in case of errors ✅
-* parser [X]
+* parser
     * function that takes argv and parse data into a data structure (stack)
     * if ac == 2
         * split the argv
@@ -16,5 +16,7 @@
         * size of array is ac-1
         * use ft_atol to convert string to int and store the int in the alloc'ed array
         * check if the array is already sorted. exit early if so
-* dupe checking after parsing [X]
+> [!WARNING]
+>  dupe checking after parsing
+
 ## Algo
