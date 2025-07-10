@@ -12,7 +12,7 @@
         * use ft_count_word to get the size of the int array and malloc for it
         * use ft_atol to convert string to int and store the int in the alloc'ed array
         * check if the array is already sorted. exit early if so
-    * if ac > 2 [X]
+    * if ac > 2 - [X]
         * size of array is ac-1
         * use ft_atol to convert string to int and store the int in the alloc'ed array
         * check if the array is already sorted. exit early if so
