@@ -70,12 +70,14 @@ t_stack *build_stack(int ac, char **av)
 		stack->arr = build_from_str(av[1]);
 		stack->size = ft_count_word(av[1], ' ');
 		stack->top = 0;
+		stack->len = stack->size;
 	}
 	else if (ac > 2)
 	{
 		stack->arr = build_from_args(ac, av);
 		stack->size = ac - 1;
 		stack->top = 0;
+		stack->len = stack->size;
 	}
 	return stack;
 }
@@ -93,6 +95,7 @@ t_stack *build_empty_stack(unsigned int size)
 		return NULL;
 	stack->size = size;
 	stack->top = -1;
+	stack->len = 0;
 	return stack;
 }
 

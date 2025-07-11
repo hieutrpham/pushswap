@@ -25,14 +25,32 @@
 */
 typedef struct s_stack {
 	int size;
+	int len;
 	int top;
 	int *arr;
 } t_stack;
 
+typedef struct i_list {
+	int num;
+	struct i_list *next;
+} i_list;
+
+enum {
+	sa,
+	sb,
+	pa,
+	pb,
+	ra,
+	rb,
+	rra,
+	rrb,
+};
+
 /**********************stack_op.c**********************
 * stack operation
 ******************************************************/
-void swap(t_stack *stack, t_list **list, char c);
+void swap(t_stack *stack, i_list **list, int op);
+void push(t_stack *from_stack, t_stack *to_stack, i_list **list,  int op);
 
 /************************parser.c**********************
 * helper functions to handle parsing
@@ -51,4 +69,7 @@ void check_dup(t_stack *stack);
 * others helper functions i don't know where to put
 ******************************************************/
 void exit_error();
+bool is_stack_empty(t_stack *stack);
+bool is_stack_full(t_stack *stack);
+void store_op(i_list **list, int op);
 #endif

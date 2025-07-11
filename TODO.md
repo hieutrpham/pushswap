@@ -33,7 +33,6 @@ typedef struct s_stack {
 ```
 
 * swap the first 2 elements
-    *
 * push the top element between 2 stacks
 * rotate stack
 * reverse rotate stack

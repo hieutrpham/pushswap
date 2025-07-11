@@ -12,28 +12,54 @@
 
 #include "../include/push_swap.h"
 
-void swap(t_stack *stack, t_list **list, char c)
+/* @brief: swap the top 2 ints
+ * @param stack: the stack to swap
+ * @param list: the list to store the operations
+ * @param op: to indicate which operation
+ */
+void swap(t_stack *stack, i_list **list, int op)
 {
 	int tmp;
 	int *int_arr;
-	t_list *new_node;
+	int top;
 
-	new_node = NULL;
+	top = stack->top;
 	int_arr = stack->arr;
-	if (stack->size >= 2)
+	if (stack->len >= 2)
 	{
-		tmp = int_arr[stack->top];
-		int_arr[stack->top] = int_arr[stack->top+1];
-		int_arr[stack->top + 1] = tmp;
+		tmp = int_arr[top];
+		int_arr[top] = int_arr[top+1];
+		int_arr[top + 1] = tmp;
 	}
-	if (c == 'a')
+	store_op(list, op);
+}
+
+/* @brief: push top element from_stack to_stack
+ * @params op: indicate which operation
+ */
+void push(t_stack *from_stack, t_stack *to_stack, i_list **list,  int op)
+{
+	int top_value;
+
+	top_value = 0;
+	if (!is_stack_empty(from_stack))
+		top_value = from_stack->arr[from_stack->top];
+	else
+		return;
+	if (is_stack_empty(to_stack))
 	{
-		new_node = ft_lstnew("sa");
-		ft_lstadd_back(list, new_node);
+		to_stack->arr[to_stack->size - 1] = top_value;
+		to_stack->top = to_stack->size - 1;
+		to_stack->len++;
 	}
-	else if (c == 'b')
+	else
 	{
-		new_node = ft_lstnew("sb");
-		ft_lstadd_back(list, new_node);
+		to_stack->arr[to_stack->top-- - 1] = top_value;
+		to_stack->len++;
 	}
+	from_stack->top++;
+	if (from_stack->top >= from_stack->size)
+		from_stack->top = -1;
+	from_stack->len--;
+	store_op(list, op);
 }
