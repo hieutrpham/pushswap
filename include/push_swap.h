@@ -6,7 +6,7 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 07:45:38 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/06 15:14:58 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/10 21:20:29 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,15 @@
  * @param: len is variable to keep track of how many elements currently in array
 */
 typedef struct s_stack {
-	int *arr;
 	int size;
-	int len;
+	int top;
+	int *arr;
 } t_stack;
+
+/**********************stack_op.c**********************
+* stack operation
+******************************************************/
+void swap(t_stack *stack, t_list **list, char c);
 
 /************************parser.c**********************
 * helper functions to handle parsing
@@ -35,6 +40,7 @@ typedef struct s_stack {
 t_stack *build_stack(int ac, char **av);
 t_stack *build_empty_stack(unsigned int size);
 void destroy_stack(t_stack *stack);
+
 /************************errors.c**********************
 * helper functions to handle errors
 ******************************************************/

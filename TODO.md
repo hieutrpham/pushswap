@@ -1,4 +1,6 @@
 # TODO
+
+## Parsing and error checking
 * error checker
     * function that takes the ac and av and check for some common errors
         * check for duplicates (use is_there_dup during parser) ✅
@@ -18,5 +20,22 @@
         * check if the array is already sorted. exit early if so
 > [!WARNING]
 >  dupe checking after parsing
+
+## Stack Operations
+
+```C
+// struct for the stack
+typedef struct s_stack {
+	int size;
+	int top;
+	int *arr;
+} t_stack;
+```
+
+* swap the first 2 elements
+    *
+* push the top element between 2 stacks
+* rotate stack
+* reverse rotate stack
 
 ## Algo

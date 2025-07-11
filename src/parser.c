@@ -64,18 +64,18 @@ t_stack *build_stack(int ac, char **av)
 
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
-		exit(EXIT_FAILURE);
+		return NULL;
 	if (ac == 2)
 	{
 		stack->arr = build_from_str(av[1]);
 		stack->size = ft_count_word(av[1], ' ');
-		stack->len = stack->size;
+		stack->top = 0;
 	}
 	else if (ac > 2)
 	{
 		stack->arr = build_from_args(ac, av);
 		stack->size = ac - 1;
-		stack->len = stack->size;
+		stack->top = 0;
 	}
 	return stack;
 }
@@ -87,12 +87,12 @@ t_stack *build_empty_stack(unsigned int size)
 
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
-		exit(EXIT_FAILURE);
+		return NULL;
 	stack->arr = ft_calloc(size, sizeof(int));
 	if (!stack->arr)
-		exit(EXIT_FAILURE);
+		return NULL;
 	stack->size = size;
-	stack->len = size;
+	stack->top = -1;
 	return stack;
 }
 
