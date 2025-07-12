@@ -62,6 +62,8 @@ void push(t_stack *from_stack, t_stack *to_stack, i_list **list,  int op)
 	store_op(list, op);
 }
 
+/*@brief: shift all element up
+ */
 void rotate(t_stack *stack, i_list **list, int op)
 {
 	int top_value;
@@ -80,6 +82,8 @@ void rotate(t_stack *stack, i_list **list, int op)
 	store_op(list, op);
 }
 
+/*@brief: shift all elements down
+ */
 void reverse_rotate(t_stack *stack, i_list **list, int op)
 {
 	int bottom_value;

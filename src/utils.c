@@ -22,10 +22,6 @@ bool is_stack_empty(t_stack *stack)
 {
 	return stack->top < 0;
 }
-bool is_stack_full(t_stack *stack)
-{
-	return stack->top == 0;
-}
 
 void store_op(i_list **list, int op)
 {
