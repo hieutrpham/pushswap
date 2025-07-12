@@ -47,8 +47,8 @@ typedef struct s_stack {
 ## Algo
 
 ### bad algo probably takes a lot of operations
-    * find the smallest int in stack a. rotate or reverse rotate until the top then push to b. keep doing it until stack a is empty
-    * push everything from b to a. a should be sorted
+* find the smallest int in stack a. rotate or reverse rotate until the top then push to b. keep doing it until stack a is empty
+* push everything from b to a. a should be sorted
 
 ### kinda quicksort algo
-    * divide the stack into smaller chunks and sort them
+* divide the stack into smaller chunks and sort them
