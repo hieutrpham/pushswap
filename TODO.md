@@ -28,9 +28,16 @@
 typedef struct s_stack {
 	int size;
 	int top;
+    int len;
 	int *arr;
 } t_stack;
 ```
+
+* int size to keep track of the bottom element. also the max_size of the stack
+* int top to keep track of the top of the stack. incremented when pushing.
+* int len to keep track of how many elements in the stack.
+    * used in swap. only swapping when `len >= 2`
+    * used in algo to do certain sorting when `len = 3, len = 5`
 
 * swap the first 2 elements
 * push the top element between 2 stacks

@@ -51,7 +51,8 @@ enum {
 ******************************************************/
 void swap(t_stack *stack, i_list **list, int op);
 void push(t_stack *from_stack, t_stack *to_stack, i_list **list,  int op);
-
+void rotate(t_stack *stack, i_list **list, int op);
+void reverse_rotate(t_stack *stack, i_list **list, int op);
 /************************parser.c**********************
 * helper functions to handle parsing
 ******************************************************/

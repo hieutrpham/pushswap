@@ -41,11 +41,9 @@ void push(t_stack *from_stack, t_stack *to_stack, i_list **list,  int op)
 {
 	int top_value;
 
-	top_value = 0;
-	if (!is_stack_empty(from_stack))
-		top_value = from_stack->arr[from_stack->top];
-	else
+	if (is_stack_empty(from_stack))
 		return;
+	top_value = from_stack->arr[from_stack->top];
 	if (is_stack_empty(to_stack))
 	{
 		to_stack->arr[to_stack->size - 1] = top_value;
@@ -61,5 +59,41 @@ void push(t_stack *from_stack, t_stack *to_stack, i_list **list,  int op)
 	if (from_stack->top >= from_stack->size)
 		from_stack->top = -1;
 	from_stack->len--;
+	store_op(list, op);
+}
+
+void rotate(t_stack *stack, i_list **list, int op)
+{
+	int top_value;
+	int tmp_top;
+
+	if (is_stack_empty(stack))
+		return;
+	tmp_top = stack->top;
+	top_value = stack->arr[tmp_top];
+	while (tmp_top < stack->size - 1)
+	{
+		stack->arr[tmp_top] = stack->arr[tmp_top + 1];
+		tmp_top++;
+	}
+	stack->arr[stack->size - 1] = top_value;
+	store_op(list, op);
+}
+
+void reverse_rotate(t_stack *stack, i_list **list, int op)
+{
+	int bottom_value;
+	int tmp_bot;
+
+	if (is_stack_empty(stack))
+		return;
+	tmp_bot = stack->size - 1;
+	bottom_value = stack->arr[tmp_bot];
+	while (tmp_bot > stack->top)
+	{
+		stack->arr[tmp_bot] = stack->arr[tmp_bot - 1];
+		tmp_bot--;
+	}
+	stack->arr[stack->top] = bottom_value;
 	store_op(list, op);
 }

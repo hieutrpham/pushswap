@@ -47,22 +47,13 @@ int main(int ac, char **av)
 	ft_putendl_fd("original stack a", 1);
 	print_stack(stack_a);
 
-	swap(stack_a, &node, sa);
-	ft_printf("stack b top: %d\n", stack_b->top);
-	push(stack_a, stack_b, &node, pb);
-	ft_printf("stack b top: %d\n", stack_b->top);
-	
-	while (!is_stack_empty(stack_a))
-		push(stack_a, stack_b, &node, pb);
-	
-	ft_putendl_fd("stack a after swap and push", 1);
-	ft_printf("stacka top: %d\n", stack_a->top);
-	ft_putendl_fd("stack b after swap and push", 1);
-	print_stack(stack_b);
-
-	ft_printf("stack b top: %d\n", stack_b->top);
-	ft_putendl_fd("what's in the node now", 1);
-	print_list(node);
+	reverse_rotate(stack_a, &node, ra);
+	reverse_rotate(stack_a, &node, ra);
+	reverse_rotate(stack_a, &node, ra);
+	reverse_rotate(stack_a, &node, ra);
+	ft_printf("stack a after rotate\n");
+	print_stack(stack_a);
+	// print_list(node);
 
 	destroy_stack(stack_a);
 	destroy_stack(stack_b);
