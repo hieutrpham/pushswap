@@ -48,6 +48,8 @@ typedef struct s_stack {
 
 ### bad algo probably takes a lot of operations
 * find the smallest int in stack a. rotate or reverse rotate until the top then push to b. keep doing it until stack a is empty
+    * return the index of the min_int
+    * store a sorted array in the stack so i know the correct index of all elements in the array
 * push everything from b to a. a should be sorted
 
 ### kinda quicksort algo

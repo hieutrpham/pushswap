@@ -6,7 +6,7 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:25:39 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/06 14:26:42 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/14 12:10:45 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,17 +68,18 @@ t_stack *build_stack(int ac, char **av)
 	if (ac == 2)
 	{
 		stack->arr = build_from_str(av[1]);
+		stack->sorted_arr = build_from_str(av[1]);
 		stack->size = ft_count_word(av[1], ' ');
-		stack->top = 0;
-		stack->len = stack->size;
 	}
 	else if (ac > 2)
 	{
 		stack->arr = build_from_args(ac, av);
+		stack->sorted_arr = build_from_args(ac, av);
 		stack->size = ac - 1;
-		stack->top = 0;
-		stack->len = stack->size;
 	}
+	bubblesort(stack->sorted_arr, stack->size);
+	stack->top = 0;
+	stack->len = stack->size;
 	return stack;
 }
 /*@brief: to build stack b
@@ -97,13 +98,4 @@ t_stack *build_empty_stack(unsigned int size)
 	stack->top = -1;
 	stack->len = 0;
 	return stack;
-}
-
-void destroy_stack(t_stack *stack)
-{
-	if (stack)
-	{
-		free(stack->arr);
-		free(stack);
-	}
 }

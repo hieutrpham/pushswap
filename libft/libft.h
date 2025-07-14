@@ -6,7 +6,7 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 11:36:45 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/06 14:30:43 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/14 11:31:27 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,5 @@ int					ft_ilen(int n);
 /* sort functions */
 bool is_sorted(int *arr, int size);
 void quicksort(int *arr, int low, int high);
+void bubblesort(int *arr, int size);
 #endif

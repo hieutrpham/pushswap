@@ -6,7 +6,7 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:14:17 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/06 15:14:41 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/14 11:42:14 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,14 @@ void store_op(i_list **list, int op)
 	while (last->next)
 		last = last->next;
 	last->next = new_node;
+}
+
+void destroy_stack(t_stack *stack)
+{
+	if (stack)
+	{
+		free(stack->arr);
+		free(stack->sorted_arr);
+		free(stack);
+	}
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort.c                                        :+:      :+:    :+:   */
+/*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 11:37:38 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/05 11:38:09 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/14 12:21:07 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,29 @@ void quicksort(int *arr, int low, int high) {
         quicksort(arr, low, pi - 1);
         quicksort(arr, pi + 1, high);
     }
+}
+
+void bubblesort(int *arr, int size)
+{
+	int i;
+	int j;
+	int temp;
+
+	temp = 0;
+	i = 0;
+	while (i < size - 1)
+	{
+		j = i;
+		while (j < size)
+		{
+			if (arr[i] > arr[j])
+			{
+				temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+			j++;
+		}
+		i++;
+	}
 }
