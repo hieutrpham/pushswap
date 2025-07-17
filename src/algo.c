@@ -6,7 +6,7 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:04:27 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/14 11:18:09 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/17 17:31:43 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,26 @@ int find_min(t_stack *stack)
 		i++;
 	}
 	return min_index;
+}
+
+/* @brief: scan stack a from the top to find the first number belongs to a chunk
+ * @return: the index of the number
+*/
+int scan_top(t_stack *stack, int start, int end)
+{
+	int i = stack->top;
+	int tmp_start = start;
+
+	while (i < stack->size)
+	{
+		tmp_start = start;
+		while (tmp_start <= end)
+		{
+			if (stack->arr[i] == stack->sorted_arr[tmp_start])
+				return i;
+			tmp_start++;
+		}
+		i++;
+	}
+	return -1;
 }

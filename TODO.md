@@ -72,6 +72,10 @@ typedef struct s_stack {
     * 2nd chunk is `sorted_arr[chunk_size]` to `sorted_arr[2*chunksize - 1]` etc.
 * first loop through stack a until a is empty
     * scan stack a from the top to find the first number belonging to the chunk in process
+        * the function should return the index of the number
+        * the moves required to send it to top would be equal to the index - top.
     * scan stack a from the bottom to find another number belonging to the chunk in process
+        * the moves required here would be equal size - index + 1
     * calculate and compare the number of moves it takes to move those 2 number to top of stack_a.
         * proceed to move the number with the least number of moves
+    * if after all the chunks are process, stack a still might have some numbers left, sort them based on the number of elements (3, 5 or more)

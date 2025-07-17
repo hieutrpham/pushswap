@@ -6,7 +6,7 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 07:45:38 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/17 08:17:55 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/17 16:54:13 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void check_dup(t_stack *stack);
 * functions related to algorithm
 ******************************************************/
 int find_min(t_stack *stack);
+int scan_top(t_stack *stack, int start, int end);
 
 /************************utils.c**********************
 * others helper functions i don't know where to put
