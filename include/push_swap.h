@@ -6,7 +6,7 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 07:45:38 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/14 11:42:33 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/17 08:17:55 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_stack {
 	int size;
 	int len;
 	int top;
+	int chunk_size;
 	int *arr;
 	int *sorted_arr;
 } t_stack;
@@ -67,6 +68,11 @@ t_stack *build_empty_stack(unsigned int size);
 void check_input(int ac, char **av);
 void check_dup(t_stack *stack);
 
+/************************algo.c**********************
+* functions related to algorithm
+******************************************************/
+int find_min(t_stack *stack);
+
 /************************utils.c**********************
 * others helper functions i don't know where to put
 ******************************************************/
@@ -75,8 +81,4 @@ bool is_stack_empty(t_stack *stack);
 void store_op(i_list **list, int op);
 void destroy_stack(t_stack *stack);
 
-/************************algo.c**********************
-* others helper functions i don't know where to put
-******************************************************/
-int find_min(t_stack *stack);
 #endif

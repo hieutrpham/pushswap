@@ -6,7 +6,7 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 07:40:05 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/14 12:23:07 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/17 08:29:56 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -15,7 +15,7 @@ void print_stack(t_stack *stack)
 {
 	for (int i = stack->top; i < stack->size; i++)
 	{
-		ft_printf("%d\n", stack->arr[i]);
+		ft_printf("%d\n", stack->sorted_arr[i]);
 	}
 }
 
@@ -39,32 +39,12 @@ void print_list(i_list *list)
 	}
 }
 
-void bad_algo(t_stack *stack_a, t_stack *stack_b, i_list **list)
-{
-	int min_index;
-
-	min_index = find_min(stack_a);
-	while (!is_stack_empty(stack_a))
-	{
-		while (min_index != stack_a->top)
-		{
-			rotate(stack_a, list, ra);
-			min_index = find_min(stack_a);
-		}
-		push(stack_a, stack_b, list, pb);
-	}
-	while (!is_stack_empty(stack_b))
-	{
-		push(stack_b, stack_a, list, pa);
-	}
-}
-
 int main(int ac, char **av) 
 {
 	check_input(ac, av);
 	t_stack *stack_a;
 	t_stack *stack_b;
-	i_list *node;
+	// i_list *node;
 
 	stack_a = build_stack(ac, av);
 	if (!stack_a)
@@ -73,11 +53,8 @@ int main(int ac, char **av)
 	stack_b = build_empty_stack(stack_a->size);
 	if (!stack_b)
 		return (destroy_stack(stack_a), EXIT_FAILURE);
-	node = NULL;
-	
-	bad_algo(stack_a, stack_b, &node);
-	// print_stack(stack_a);
-	print_list(node);
+	// node = NULL;
+	ft_printf("%d\n", stack_a->chunk_size);
 	destroy_stack(stack_a);
 	destroy_stack(stack_b);
 	return EXIT_SUCCESS;

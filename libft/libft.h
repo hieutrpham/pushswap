@@ -6,7 +6,7 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 11:36:45 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/14 11:31:27 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/17 08:08:02 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,11 @@ int					ft_putptr(void *ptr);
 int					ft_ulen(unsigned int n);
 int					ft_ilen(int n);
 
-/* sort functions */
+/* sort functions in ft_sort.c*/
 bool is_sorted(int *arr, int size);
 void quicksort(int *arr, int low, int high);
 void bubblesort(int *arr, int size);
+
+/* math functions in ft_math.c */
+int ft_sqrt(int num);
 #endif

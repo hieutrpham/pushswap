@@ -51,6 +51,7 @@ SRC :=	ft_atoi.c \
 		ft_lstsize_bonus.c \
 		ft_count_word.c \
 		ft_sort.c \
+		ft_math.c \
 
 OBJ := $(patsubst %.c, %.o, $(SRC))
 DEP = $(SRC:.c=.d)

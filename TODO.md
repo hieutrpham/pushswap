@@ -1,4 +1,4 @@
-# TODO
+# TODO part 1
 
 ## Parsing and error checking
 * error checker
@@ -53,4 +53,25 @@ typedef struct s_stack {
 * push everything from b to a. a should be sorted
 
 ### kinda quicksort algo
-* divide the stack into smaller chunks and sort them
+* divide the stack into 3 chunks and sort them recursively
+* kinda trippy still not sure how it works
+
+### my algo. combination of chunk, greedy, insertion sort?
+* i came up with an algorithm that combines several ideas from the articles i've read. lets say i have an unsorted array of numbers from 0-8. i would presort it and divide it into 3 chunks: 0-2, 3-5, 6-8. i'm going to process the first chunk which is 0-2. i scan the stack a for any number belonging to this chunk and see which takes the least operations to bring to the top. once i do i will push it over to stack b.
+* once stack b has more than 1 numbers, any number i push from stack a will need to be check for the corrected slot
+    * if a number in stack a is larger or smaller than all numbers in b, rotate b so that the current max number of b is on top then i would just push it
+    * if a number in stack a is not larger than all numbers in b, i would need to find the closest but smaller number in stack b to bring it to the top of stack b before i push the number from stack a over. this way i maintain some descending order in stack b
+* once stack a is empty, stack b should have a somewhat descending order. now i just have to push everything from stack b over to stack a.
+    * before i do that, i have to confirm stack b is in descending order. if not i have to find the max number and rotate stack b until the max number is on top.
+
+# TODO part 2 (algo)
+
+* first i need a way to divide the sorted array into chunks. number of elements = sqrt(size)
+    * `chunk_size = sqrt(arr_size)`
+    * first chunk is `sorted_arr[0]` to `sorted_array[chunk_size - 1]`
+    * 2nd chunk is `sorted_arr[chunk_size]` to `sorted_arr[2*chunksize - 1]` etc.
+* first loop through stack a until a is empty
+    * scan stack a from the top to find the first number belonging to the chunk in process
+    * scan stack a from the bottom to find another number belonging to the chunk in process
+    * calculate and compare the number of moves it takes to move those 2 number to top of stack_a.
+        * proceed to move the number with the least number of moves

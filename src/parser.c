@@ -6,7 +6,7 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:25:39 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/14 12:10:45 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/17 08:19:01 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ t_stack *build_stack(int ac, char **av)
 		stack->sorted_arr = build_from_args(ac, av);
 		stack->size = ac - 1;
 	}
-	bubblesort(stack->sorted_arr, stack->size);
+	quicksort(stack->sorted_arr, 0, stack->size - 1);
+	stack->chunk_size = ft_sqrt(stack->size);
 	stack->top = 0;
 	stack->len = stack->size;
 	return stack;
@@ -97,5 +98,6 @@ t_stack *build_empty_stack(unsigned int size)
 	stack->size = size;
 	stack->top = -1;
 	stack->len = 0;
+	stack->chunk_size = 0;
 	return stack;
 }
