@@ -12,8 +12,29 @@
 
 #include "../include/push_swap.h"
 
-/*@brief: find the index of the smallest int in the array
+/*@brief: find the index of the max int in the array
  */
+int find_max(t_stack *stack)
+{
+	int max_index;
+	int max_value;
+	int i;
+
+	max_index = stack->top;
+	max_value = stack->arr[max_index];
+	i = max_index + 1;
+	while (i < stack->size)
+	{
+		if (stack->arr[i] > max_value)
+		{
+			max_index = i;
+			max_value = stack->arr[i];
+		}
+		i++;
+	}
+	return max_index;
+}
+
 int find_min(t_stack *stack)
 {
 	int min_index;
@@ -35,8 +56,27 @@ int find_min(t_stack *stack)
 	return min_index;
 }
 
+/*@brief: find the closest but smaller in stack b than the number on top of stack A
+ */
+int find_closest_smaller(t_stack *stack_a, t_stack *stack_b)
+{
+	int num_a;
+	int i = 0;
+	int res = 0;
+
+	num_a = stack_a->arr[stack_a->top];
+	while (i < stack_b->size)
+	{
+		if (stack_b->arr[i] < num_a)
+			res = i;
+		else
+			break;
+		i++;
+	}
+	return res;
+}
 /* @brief: scan stack a from the top to find the first number belongs to a chunk
- * @return: the index of the number
+ * @return: the index of the number or -1 if not found
 */
 int scan_top(t_stack *stack, int start, int end)
 {
@@ -55,4 +95,28 @@ int scan_top(t_stack *stack, int start, int end)
 		i++;
 	}
 	return -1;
+}
+
+int scan_bottom(t_stack *stack, int start, int end)
+{
+	int i = stack->size;
+	int tmp_start = start;
+
+	while (i > stack->top)
+	{
+		tmp_start = start;
+		while (tmp_start <= end)
+		{
+			if (stack->arr[i] == stack->sorted_arr[tmp_start])
+				return i;
+			tmp_start++;
+		}
+		i--;
+	}
+	return -1;
+}
+
+void prep_stack_b(t_stack *stack_a, t_stack *stack_b)
+{
+
 }

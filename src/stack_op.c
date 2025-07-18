@@ -101,3 +101,18 @@ void reverse_rotate(t_stack *stack, i_list **list, int op)
 	stack->arr[stack->top] = bottom_value;
 	store_op(list, op);
 }
+
+/* rotate the stack by a specify number of times
+*/
+void do_rotate(t_stack *stack, i_list **list, int op, int num_move)
+{
+	int i = 0;
+
+	while (i++ < num_move)
+	{
+		if (op == ra || op == rb)
+			rotate(stack, list, op);
+		else if (op == rra || op == rrb)
+			reverse_rotate(stack, list, op);
+	}
+}
