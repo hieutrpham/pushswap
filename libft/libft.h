@@ -20,6 +20,10 @@
 # include <stdbool.h>
 # include <limits.h>
 
+#ifndef ABS
+# define ABS(value) ((((value) > 0) - ((value) < 0)) * (value))
+#endif
+
 /* ft_isany.c */
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);

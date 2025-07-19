@@ -75,7 +75,7 @@ int find_min(t_stack *stack);
 int scan_top(t_stack *stack, int start, int end);
 int scan_bottom(t_stack *stack, int start, int end);
 void do_rotate(t_stack *stack, i_list **list, int op, int num_move);
-void prep_stack_b(t_stack *stack_a, t_stack *stack_b);
+void prep_stack_b(t_stack *stack_a, i_list **list, t_stack *stack_b);
 
 /************************utils.c**********************
 * others helper functions i don't know where to put
@@ -84,5 +84,6 @@ void exit_error();
 bool is_stack_empty(t_stack *stack);
 void store_op(i_list **list, int op);
 void destroy_stack(t_stack *stack);
+void print_stack(t_stack *stack, int c);
 
 #endif

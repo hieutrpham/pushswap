@@ -11,12 +11,15 @@
 /* ************************************************************************** */
 #include "../include/push_swap.h"
 
-void print_stack(t_stack *stack)
+void print_stack(t_stack *stack, int c)
 {
+	if (c == 'a')
+		ft_printf("===stack a===\n");
+	else
+		ft_printf("===stack b===\n");
 	for (int i = stack->top; i < stack->size; i++)
-	{
 		ft_printf("index %d: %d\n", i, stack->arr[i]);
-	}
+	ft_printf("\n");
 }
 
 void print_list(i_list *list)
@@ -56,17 +59,19 @@ int main(int ac, char **av)
 
 	node = NULL;
 	int i = 0;
-	// ft_printf("chunk size: %d\n", stack_a->chunk_size);
-	ft_printf("original stack a:\n");
-	print_stack(stack_a);
+	ft_printf("chunk size: %d\n", stack_a->chunk_size);
+	print_stack(stack_a, 'a');
+	// looping through each chunk
 	while (i < stack_a->chunk_size)
 	{
 		int start_index = i * stack_a->chunk_size;
 		int end_index = (i + 1) * stack_a->chunk_size - 1;
-		// ft_printf("chunk %d, start: %d, end %d\n", i, stack_a->sorted_arr[start_index], stack_a->sorted_arr[end_index]);
-		// do things for each chunk
+		ft_printf("+++chunk %d, start: %d, end %d\n\n", i, stack_a->sorted_arr[start_index], stack_a->sorted_arr[end_index]);
 		int index_top = scan_top(stack_a, start_index, end_index);
 		int index_bot = scan_bottom(stack_a, start_index, end_index);
+		ft_printf("===value top: %d, value bot: %d\n", stack_a->arr[index_top], stack_a->arr[index_bot]);
+		
+		// scan from the top and bottom and search for the matching number in current chunk
 		while (index_top != -1 && index_bot != -1)
 		{
 			// move target index to the top and push to b (also have to prep b)
@@ -76,7 +81,7 @@ int main(int ac, char **av)
 				do_rotate(stack_a, &node, ra, num_ra);
 			else
 				do_rotate(stack_a, &node, rra, num_rra);
-			prep_stack_b(stack_a, stack_b);
+			prep_stack_b(stack_a, &node, stack_b);
 			push(stack_a, stack_b, &node, pb);
 			// scan again until done with the chunk
 			index_top = scan_top(stack_a, start_index, end_index);
@@ -85,10 +90,8 @@ int main(int ac, char **av)
 		i++;
 	}
 	// need another loop to process the leftover in stack A
-	ft_printf("stack b:\n");
-	print_stack(stack_b);
-	ft_printf("stack a leftover:\n");
-	print_stack(stack_a);
+	print_stack(stack_b, 'b');
+	print_stack(stack_a, 'a');
 	destroy_stack(stack_a);
 	destroy_stack(stack_b);
 	return EXIT_SUCCESS;
