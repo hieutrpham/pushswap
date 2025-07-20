@@ -122,5 +122,6 @@ int main(int ac, char **av)
 	print_list(node);
 	destroy_stack(stack_a);
 	destroy_stack(stack_b);
+	
 	return EXIT_SUCCESS;
 }

@@ -13,7 +13,7 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +103 src/main.c
+badd +105 src/main.c
 badd +9 Makefile
 badd +25 libft/libft.h
 badd +14 libft/ft_split.c
@@ -33,7 +33,7 @@ badd +2 libft/ft_sort.c
 badd +1 src/parser.csrc/operations.c
 badd +109 src/stack_op.c
 badd +2 libft/ft_memmove.c
-badd +126 src/algo.c
+badd +101 src/algo.c
 badd +29 libft/ft_math.c
 badd +1 libft/mak
 badd +47 libft/ft_isany.c
@@ -48,6 +48,7 @@ badd +15 libft/ft_putchar_fd.c
 badd +14 libft/ft_putendl_fd.c
 badd +14 libft/ft_putstr_fd.c
 badd +11 libft/ft_putnbr_fd.c
+badd +3 test
 argglobal
 %argdel
 $argadd src/main.c
@@ -55,7 +56,7 @@ set stal=2
 tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
-edit src/main.c
+edit test
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -75,7 +76,7 @@ set winwidth=1
 exe 'vert 1resize ' . ((&columns * 119 + 120) / 240)
 exe 'vert 2resize ' . ((&columns * 120 + 120) / 240)
 argglobal
-balt TODO.md
+balt src/main.c
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -86,12 +87,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 101 - ((37 * winheight(0) + 31) / 62)
+let s:l = 1 - ((0 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 101
-normal! 039|
+keepjumps 1
+normal! 0
 wincmd w
 argglobal
 if bufexists(fnamemodify("src/algo.c", ":p")) | buffer src/algo.c | else | edit src/algo.c | endif
@@ -109,12 +110,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 126 - ((30 * winheight(0) + 31) / 62)
+let s:l = 113 - ((13 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 126
-normal! 05|
+keepjumps 113
+normal! 024|
 wincmd w
 exe 'vert 1resize ' . ((&columns * 119 + 120) / 240)
 exe 'vert 2resize ' . ((&columns * 120 + 120) / 240)
