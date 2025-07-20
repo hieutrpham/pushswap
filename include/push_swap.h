@@ -6,7 +6,7 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 07:45:38 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/17 16:54:13 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/20 21:03:55 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int scan_top(t_stack *stack, int start, int end);
 int scan_bottom(t_stack *stack, int start, int end);
 void do_rotate(t_stack *stack, i_list **list, int op, int num_move);
 void prep_stack_b(t_stack *stack_a, i_list **list, t_stack *stack_b);
+int find_closest_smaller(t_stack *stack_a, t_stack *stack_b);
 
 /************************utils.c**********************
 * others helper functions i don't know where to put
@@ -86,5 +87,6 @@ bool is_stack_empty(t_stack *stack);
 void store_op(i_list **list, int op);
 void destroy_stack(t_stack *stack);
 void print_stack(t_stack *stack, int c);
+void print_list(i_list *list);
 
 #endif

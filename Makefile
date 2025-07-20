@@ -15,6 +15,8 @@ SRC = main.c \
 		parser.c \
 		stack_op.c \
 		algo.c \
+		algo_helper.c \
+		post_algo.c \
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
