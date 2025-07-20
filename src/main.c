@@ -13,6 +13,8 @@
 
 void print_stack(t_stack *stack, int c)
 {
+	if (is_stack_empty(stack))
+		return;
 	if (c == 'a')
 		ft_printf("===stack a===\n");
 	else
@@ -59,20 +61,20 @@ int main(int ac, char **av)
 
 	node = NULL;
 	int i = 0;
-	ft_printf("chunk size: %d\n", stack_a->chunk_size);
+	// ft_printf("chunk size: %d\n", stack_a->chunk_size);
 	print_stack(stack_a, 'a');
 	// looping through each chunk
 	while (i < stack_a->chunk_size)
 	{
 		int start_index = i * stack_a->chunk_size;
 		int end_index = (i + 1) * stack_a->chunk_size - 1;
-		ft_printf("+++chunk %d, start: %d, end %d\n\n", i, stack_a->sorted_arr[start_index], stack_a->sorted_arr[end_index]);
+		// ft_printf("+++chunk %d, start: %d, end %d\n\n", i, stack_a->sorted_arr[start_index], stack_a->sorted_arr[end_index]);
 		int index_top = scan_top(stack_a, start_index, end_index);
 		int index_bot = scan_bottom(stack_a, start_index, end_index);
-		ft_printf("===value top: %d, value bot: %d\n", stack_a->arr[index_top], stack_a->arr[index_bot]);
+		// ft_printf("===value top: %d, value bot: %d\n", stack_a->arr[index_top], stack_a->arr[index_bot]);
 		
 		// scan from the top and bottom and search for the matching number in current chunk
-		while (index_top != -1 && index_bot != -1)
+		while ((index_top != -1 || index_bot != -1) && !is_stack_empty(stack_a))
 		{
 			// move target index to the top and push to b (also have to prep b)
 			int num_ra = index_top - stack_a->top;
@@ -86,12 +88,15 @@ int main(int ac, char **av)
 			// scan again until done with the chunk
 			index_top = scan_top(stack_a, start_index, end_index);
 			index_bot = scan_bottom(stack_a, start_index, end_index);
+			// ft_printf("---index top: %d, index bot: %d\n", index_top, index_bot);
+			// ft_printf("===value top: %d, value bot: %d\n", stack_a->arr[index_top], stack_a->arr[index_bot]);
 		}
 		i++;
 	}
 	// need another loop to process the leftover in stack A
-	print_stack(stack_b, 'b');
-	print_stack(stack_a, 'a');
+	// print_stack(stack_b, 'b');
+	// print_stack(stack_a, 'a');
+	print_list(node);
 	destroy_stack(stack_a);
 	destroy_stack(stack_b);
 	return EXIT_SUCCESS;

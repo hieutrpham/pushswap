@@ -90,11 +90,11 @@ int find_closest_smaller(t_stack *stack_a, t_stack *stack_b)
 	while (value_a < stack_b->arr[top_b])
 		top_b++;
 	dist = value_a - stack_b->arr[top_b];
-	ft_printf("distance: %d\n", dist);
+	//ft_printf("distance: %d\n", dist);
 	while (top_b < stack_b->size)
 	{
-		ft_printf("value top a: %d\n", value_a);
-		ft_printf("value top b: %d\n", stack_b->arr[top_b]);
+		//ft_printf("value top a: %d\n", value_a);
+		//ft_printf("value top b: %d\n", stack_b->arr[top_b]);
 		if (value_a - stack_b->arr[top_b] <= dist && value_a > stack_b->arr[top_b])
 		{
 			dist = value_a - stack_b->arr[top_b];
@@ -148,29 +148,35 @@ int scan_bottom(t_stack *stack, int start, int end)
 
 void prep_stack_b(t_stack *stack_a, i_list **list, t_stack *stack_b)
 {
-	int max_b = stack_b->arr[find_max(stack_b)];
-	int min_b = stack_b->arr[find_min(stack_b)];
-	int top_a = stack_a->arr[stack_a->top];
+	int max_b = find_max(stack_b);
+	int min_b = find_min(stack_b);
+	int top_a = stack_a->top;
 	int closest = stack_b->top;
 
-	ft_printf("max b: %d, min b: %d, top a: %d\n", max_b, min_b, top_a);
+	//ft_printf("max b: %d, min b: %d, top a: %d\n", max_b, min_b, top_a);
 	if (is_stack_empty(stack_b) || stack_b->len < 2)
 		return;
-	if (top_a > max_b || top_a < min_b)
+	if (stack_a->arr[top_a] > stack_b->arr[max_b] || stack_a->arr[top_a] < stack_b->arr[min_b])
 	{
 		if (max_b <= (stack_b->size + stack_b->top) / 2)
+		{
+			//ft_printf("shift up\n");
 			do_rotate(stack_b, list, rb, max_b - stack_b->top);
+		}
 		else
+	{
+			//ft_printf("shift down\n");
 			do_rotate(stack_b, list, rrb, stack_b->size - max_b);
+		}
 	}
 	else
 	{
 		closest = find_closest_smaller(stack_a, stack_b);
-		ft_printf("DEBUG: closest smaller index and value: %d %d\n", closest, stack_b->arr[closest]);
+		//ft_printf("DEBUG: closest smaller index and value: %d %d\n", closest, stack_b->arr[closest]);
 		if (closest <= (stack_b->size + stack_b->top) / 2)
 			do_rotate(stack_b, list, rb, closest - stack_b->top);
 		else
 			do_rotate(stack_b, list, rrb, stack_b->size - closest);
 	}
-	print_stack(stack_b, 'b');
+	// print_stack(stack_b, 'b');
 }
