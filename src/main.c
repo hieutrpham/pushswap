@@ -38,8 +38,12 @@ void print_list(i_list *list)
 			ft_printf("pb\n");
 		if (list->num == ra)
 			ft_printf("ra\n");
+		if (list->num == rra)
+			ft_printf("rra\n");
 		if (list->num == rb)
 			ft_printf("rb\n");
+		if (list->num == rrb)
+			ft_printf("rrb\n");
 		list = list->next;
 	}
 }
@@ -62,7 +66,7 @@ int main(int ac, char **av)
 	node = NULL;
 	int i = 0;
 	// ft_printf("chunk size: %d\n", stack_a->chunk_size);
-	print_stack(stack_a, 'a');
+	// print_stack(stack_a, 'a');
 	// looping through each chunk
 	while (i < stack_a->chunk_size)
 	{
@@ -93,8 +97,27 @@ int main(int ac, char **av)
 		}
 		i++;
 	}
-	// need another loop to process the leftover in stack A
+	// handle leftover in stack a
+	i = stack_a->top;
+	while (!is_stack_empty(stack_a))
+	{
+		prep_stack_b(stack_a, &node, stack_b);
+		push(stack_a, stack_b, &node, pb);
+		i++;
+	}
+	// loop to sort b in descending order
+	int max_b = find_max(stack_b);
+	int num_rb = max_b - stack_b->top;
+	int num_rrb = stack_b->size - max_b;
+	if (num_rb <= num_rrb)
+		do_rotate(stack_b, &node, rb, num_rb);
+	else
+		do_rotate(stack_b, &node, rrb, num_rrb);
+
 	// print_stack(stack_b, 'b');
+	// print_stack(stack_a, 'a');
+	while (!is_stack_empty(stack_b))
+		push(stack_b, stack_a, &node, pa);
 	// print_stack(stack_a, 'a');
 	print_list(node);
 	destroy_stack(stack_a);

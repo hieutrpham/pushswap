@@ -72,6 +72,7 @@ void check_dup(t_stack *stack);
 * functions related to algorithm
 ******************************************************/
 int find_min(t_stack *stack);
+int find_max(t_stack *stack);
 int scan_top(t_stack *stack, int start, int end);
 int scan_bottom(t_stack *stack, int start, int end);
 void do_rotate(t_stack *stack, i_list **list, int op, int num_move);
