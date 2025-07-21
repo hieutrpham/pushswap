@@ -78,7 +78,7 @@ t_stack *build_stack(int ac, char **av)
 		stack->size = ac - 1;
 	}
 	quicksort(stack->sorted_arr, 0, stack->size - 1);
-	stack->chunk_size = ft_sqrt(stack->size);
+	stack->chunk_size =ft_sqrt(stack->size) * 2;
 	stack->top = 0;
 	stack->len = stack->size;
 	return stack;

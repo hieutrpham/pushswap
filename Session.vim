@@ -25,7 +25,7 @@ badd +44 src/quicksort.c
 badd +65 TODO.md
 badd +30 libft/ft_atoi.c
 badd +106 src/errors.c
-badd +101 src/parser.c
+badd +82 src/parser.c
 badd +36 src/utils.c
 badd +22 libft/ft_calloc.c
 badd +1 src/util
@@ -50,7 +50,7 @@ badd +14 libft/ft_putstr_fd.c
 badd +11 libft/ft_putnbr_fd.c
 badd +5 test
 badd +3 src/algo_helper.c
-badd +38 src/post_algo.c
+badd +35 src/post_algo.c
 argglobal
 %argdel
 $argadd src/main.c
@@ -89,19 +89,19 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 57 - ((23 * winheight(0) + 31) / 62)
+let s:l = 34 - ((33 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 57
+keepjumps 34
 normal! 013|
 wincmd w
 argglobal
-if bufexists(fnamemodify("src/post_algo.c", ":p")) | buffer src/post_algo.c | else | edit src/post_algo.c | endif
+if bufexists(fnamemodify("src/parser.c", ":p")) | buffer src/parser.c | else | edit src/parser.c | endif
 if &buftype ==# 'terminal'
-  silent file src/post_algo.c
+  silent file src/parser.c
 endif
-balt src/algo.c
+balt src/post_algo.c
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -112,12 +112,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 31) / 62)
+let s:l = 81 - ((38 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 0
+keepjumps 81
+normal! 035|
 wincmd w
 2wincmd w
 exe 'vert 1resize ' . ((&columns * 116 + 120) / 240)
