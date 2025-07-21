@@ -53,3 +53,17 @@ void destroy_stack(t_stack *stack)
 		free(stack);
 	}
 }
+
+void free_data(t_stack *stack_a, t_stack *stack_b, i_list *list)
+{
+	i_list *next;
+
+	while (list)
+	{
+		next = list->next;
+		free(list);
+		list = next;
+	}
+	destroy_stack(stack_a);
+	destroy_stack(stack_b);
+}
