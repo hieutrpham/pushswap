@@ -56,9 +56,8 @@ static int partition(int *arr, int low, int high) {
 }
 
 void quicksort(int *arr, int low, int high) {
-	int pi;
-
     if (low < high) {
+		int pi;
 		pi = partition(arr, low, high);
         quicksort(arr, low, pi - 1);
         quicksort(arr, pi + 1, high);

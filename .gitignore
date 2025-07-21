@@ -1,5 +1,7 @@
 Session.vim
+imgui.ini
 push_swap
+push_swap_visualizer/
 *.json
 .cache
 # Prerequisites

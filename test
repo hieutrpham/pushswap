@@ -26,33 +26,33 @@ for ((i=0; i<1000; i++)); do
 	((avg_100+=$op))
 done
 
-printf "${green}======testing for 100 random numbers 100 times======${reset}\n"
+printf "${green}======testing for 100 random numbers 1000 times======${reset}\n"
 echo "average: " $((avg_100/1000))
 echo "min: " $min_100
 echo "max: " $max_100
 
-# echo
-# min_500=15000
-# max_500=5500
-# avg_500=0
-# for ((i=0; i<100; i++)); do
-# 	# $bin $arg_100 | $checker $arg_100
-# 	arg_500=$(shuf -i0-100000 -n500)
-# 	# res=$($bin $arg_500 | $checker $arg_500)
-# 	# [[ "$res" == "KO" ]] && printf "${red}KO${reset}\n"
-# 	op=$($bin $arg_500 | wc -l)
-# 	if ((op <= min_500))
-# 	then min_500=$op;
-# 	elif ((op >= max_500))
-# 	then max_500=$op
-# 	fi
-# 	if ((op > 20000))
-# 	then echo -n "$arg_500"; break
-# 	fi
-# 	((avg_500+=$op))
-# done
-#
-# printf "${green}======testing for 500 random numbers 100 times======${reset}\n"
-# echo "average: " $((avg_500/100))
-# echo "min: " $min_500
-# echo "max : " $max_500
+echo
+min_500=15000
+max_500=5500
+avg_500=0
+for ((i=0; i<100; i++)); do
+	# $bin $arg_100 | $checker $arg_100
+	arg_500=$(shuf -i0-100000 -n500)
+	# res=$($bin $arg_500 | $checker $arg_500)
+	# [[ "$res" == "KO" ]] && printf "${red}KO${reset}\n"
+	op=$($bin $arg_500 | wc -l)
+	if ((op <= min_500))
+	then min_500=$op;
+	elif ((op >= max_500))
+	then max_500=$op
+	fi
+	if ((op > 20000))
+	then echo -n "$arg_500"; break
+	fi
+	((avg_500+=$op))
+done
+
+printf "${green}======testing for 500 random numbers 100 times======${reset}\n"
+echo "average: " $((avg_500/100))
+echo "min: " $min_500
+echo "max : " $max_500

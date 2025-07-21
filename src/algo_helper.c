@@ -112,7 +112,7 @@ int scan_top(t_stack *stack, int start, int end)
 
 int scan_bottom(t_stack *stack, int start, int end)
 {
-	int i = stack->size;
+	int i = stack->size - 1;
 	int tmp_start = start;
 
 	if (is_stack_empty(stack))
@@ -122,8 +122,6 @@ int scan_bottom(t_stack *stack, int start, int end)
 		tmp_start = start;
 		while (tmp_start <= end)
 		{
-			ft_printf("i: %d, tmpstart: %d\n", i, tmp_start);
-			ft_printf("value at i: %d, value at sorted: %d\n", stack->arr[i], stack->sorted_arr[tmp_start]);
 			if (stack->arr[i] == stack->sorted_arr[tmp_start])
 				return i;
 			tmp_start++;

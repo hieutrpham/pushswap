@@ -29,11 +29,11 @@ badd +45 src/parser.c
 badd +53 src/utils.c
 badd +22 libft/ft_calloc.c
 badd +1 src/util
-badd +2 libft/ft_sort.c
+badd +65 libft/ft_sort.c
 badd +1 src/parser.csrc/operations.c
 badd +109 src/stack_op.c
 badd +5 libft/ft_memmove.c
-badd +82 src/algo.c
+badd +59 src/algo.c
 badd +26 libft/ft_math.c
 badd +1 libft/mak
 badd +47 libft/ft_isany.c
@@ -49,7 +49,7 @@ badd +14 libft/ft_putendl_fd.c
 badd +14 libft/ft_putstr_fd.c
 badd +11 libft/ft_putnbr_fd.c
 badd +5 test
-badd +98 src/algo_helper.c
+badd +29 src/algo_helper.c
 badd +35 src/post_algo.c
 argglobal
 %argdel
@@ -58,7 +58,7 @@ set stal=2
 tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
-edit src/algo_helper.c
+edit src/main.c
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -78,7 +78,7 @@ set winwidth=1
 exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
 exe 'vert 2resize ' . ((&columns * 137 + 137) / 274)
 argglobal
-balt src/main.c
+balt src/algo_helper.c
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -89,19 +89,19 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 125 - ((60 * winheight(0) + 35) / 70)
+let s:l = 1 - ((0 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 125
-normal! 018|
+keepjumps 1
+normal! 0
 wincmd w
 argglobal
 if bufexists(fnamemodify("src/algo.c", ":p")) | buffer src/algo.c | else | edit src/algo.c | endif
 if &buftype ==# 'terminal'
   silent file src/algo.c
 endif
-balt src/utils.c
+balt libft/ft_sort.c
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -112,12 +112,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 82 - ((42 * winheight(0) + 35) / 70)
+let s:l = 60 - ((59 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 82
-normal! 09|
+keepjumps 60
+normal! 012|
 wincmd w
 exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
 exe 'vert 2resize ' . ((&columns * 137 + 137) / 274)
