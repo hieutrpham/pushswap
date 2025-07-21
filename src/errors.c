@@ -14,21 +14,21 @@
 
 /* @brief: check string can be converted to a valid int within bound
  */
-static bool is_valid_int_limit(char *str)
+static bool	is_valid_int_limit(char *str)
 {
-	long nbr;
+	long	nbr;
 
 	nbr = ft_atol(str);
 	if (nbr > INT_MAX || nbr < INT_MIN)
-		return false;
-	return true;
+		return (false);
+	return (true);
 }
 
 /* @brief: check if a string can be converted to interger
  */
-static bool is_valid_int_str(char *str)
+static bool	is_valid_int_str(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str[i] == '+' || str[i] == '-')
@@ -36,26 +36,27 @@ static bool is_valid_int_str(char *str)
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
-			return false;
+			return (false);
 		i++;
 	}
 	if (!is_valid_int_limit(str))
 		return (false);
-	return true;
+	return (true);
 }
+
 /* @brief: if ac == 2, split the string argv and check for error
  */
-static bool is_valid_split(char *str)
+static bool	is_valid_split(char *str)
 {
-	char **split;
-	int i;
+	char	**split;
+	int		i;
 
 	i = 0;
 	if (ft_strlen(str) == 0)
 		return (false);
 	split = ft_split(str, ' ');
 	if (!split)
-		return false;
+		return (false);
 	while (split[i])
 	{
 		if (!is_valid_int_str(split[i]))
@@ -63,20 +64,21 @@ static bool is_valid_split(char *str)
 		i++;
 	}
 	free_split(split);
-	return true;
+	return (true);
 }
+
 // @brief: check for existance of duplicates in an int array
 // @return: exit the program if there is dup
-void check_dup(t_stack *stack)
+void	check_dup(t_stack *stack)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
-	while (i < stack->size - 1) 
+	while (i < stack->size - 1)
 	{
 		j = i + 1;
-		while (j <stack->size)
+		while (j < stack->size)
 		{
 			if (stack->arr[i] == stack->arr[j])
 			{
@@ -88,9 +90,10 @@ void check_dup(t_stack *stack)
 		i++;
 	}
 }
-/* @brief: loop through the argv to check acceptable inputs eg. 1 2 3 and "1 2 3"
+
+/* @brief: loop through the argv to check acceptable inputs
  */
-void check_input(int ac, char **av)
+void	check_input(int ac, char **av)
 {
 	if (ac == 2 && !is_valid_split(av[1]))
 		exit_error();
@@ -103,6 +106,8 @@ void check_input(int ac, char **av)
 			ac--;
 		}
 	}
+	else if (ac == 1)
+		exit(EXIT_SUCCESS);
 	else
-		return;
+		return ;
 }

@@ -14,14 +14,14 @@
 
 /*@brief: find the index of the max int in the array
  */
-int find_max(t_stack *stack)
+int	find_max(t_stack *stack)
 {
-	int max_index;
-	int max_value;
-	int i;
+	int	max_index;
+	int	max_value;
+	int	i;
 
 	if (is_stack_empty(stack))
-		return -1;
+		return (-1);
 	max_index = stack->top;
 	max_value = stack->arr[max_index];
 	i = max_index + 1;
@@ -34,17 +34,17 @@ int find_max(t_stack *stack)
 		}
 		i++;
 	}
-	return max_index;
+	return (max_index);
 }
 
-int find_min(t_stack *stack)
+int	find_min(t_stack *stack)
 {
-	int min_index;
-	int min_value;
-	int i;
+	int	min_index;
+	int	min_value;
+	int	i;
 
 	if (is_stack_empty(stack))
-		return -1;
+		return (-1);
 	min_index = stack->top;
 	min_value = stack->arr[min_index];
 	i = min_index + 1;
@@ -57,76 +57,84 @@ int find_min(t_stack *stack)
 		}
 		i++;
 	}
-	return min_index;
+	return (min_index);
 }
 
-/*@brief: find the closest but smaller in stack b than the number on top of stack A
+/*@brief: find the closest but smaller in stack b
+ * than the number on top of stack A
  *@return: index of the number found
  */
-int find_closest_smaller(t_stack *stack_a, t_stack *stack_b)
+int	find_closest_smaller(t_stack *stack_a, t_stack *stack_b)
 {
-	int value_a;
-	int dist;
-	int top_b = stack_b->top;
-	int index = -1;
+	int	value_a;
+	int	dist;
+	int	top_b;
+	int	index;
 
+	top_b = stack_b->top;
+	index = -1;
 	value_a = stack_a->arr[stack_a->top];
 	while (value_a < stack_b->arr[top_b])
 		top_b++;
 	dist = value_a - stack_b->arr[top_b];
 	while (top_b < stack_b->size)
 	{
-		if (value_a - stack_b->arr[top_b] <= dist && value_a > stack_b->arr[top_b])
+		if (value_a - stack_b->arr[top_b] <= dist
+			&& value_a > stack_b->arr[top_b])
 		{
 			dist = value_a - stack_b->arr[top_b];
 			index = top_b;
 		}
 		top_b++;
 	}
-	return index;
+	return (index);
 }
 
 /* @brief: scan stack a from the top to find the first number belongs to a chunk
  * @return: the index of the number or -1 if not found
-*/
-int scan_top(t_stack *stack, int start, int end)
+ */
+int	scan_top(t_stack *stack, int start, int end)
 {
-	int i = stack->top;
-	int tmp_start = start;
+	int	i;
+	int	tmp_start;
 
+	i = stack->top;
+	tmp_start = start;
 	if (is_stack_empty(stack))
-		return -1;
+		return (-1);
 	while (i < stack->size)
 	{
 		tmp_start = start;
 		while (tmp_start <= end)
 		{
 			if (stack->arr[i] == stack->sorted_arr[tmp_start])
-				return i;
+				return (i);
 			tmp_start++;
 		}
 		i++;
 	}
-	return -1;
+	return (-1);
 }
 
-int scan_bottom(t_stack *stack, int start, int end)
+int	scan_bottom(t_stack *stack, int start, int end)
 {
-	int i = stack->size - 1;
-	int tmp_start = start;
+	int	i;
+	int	tmp_start;
 
+	i = stack->size - 1;
+	tmp_start = start;
 	if (is_stack_empty(stack))
-		return -1;
+		return (-1);
 	while (i > stack->top)
 	{
 		tmp_start = start;
 		while (tmp_start <= end)
 		{
 			if (stack->arr[i] == stack->sorted_arr[tmp_start])
-				return i;
+				return (i);
 			tmp_start++;
 		}
 		i--;
 	}
-	return -1;
+	return (-1);
 }

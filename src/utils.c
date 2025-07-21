@@ -12,31 +12,31 @@
 
 #include "../include/push_swap.h"
 
-void exit_error()
+void	exit_error(void)
 {
 	ft_putendl_fd("Error", 2);
 	exit(EXIT_FAILURE);
 }
 
-bool is_stack_empty(t_stack *stack)
+bool	is_stack_empty(t_stack *stack)
 {
-	return stack->top < 0;
+	return (stack->top < 0);
 }
 
-void store_op(i_list **list, int op)
+void	store_op(i_list **list, int op)
 {
-	i_list *new_node;
-	i_list *last;
+	i_list	*new_node;
+	i_list	*last;
 
 	new_node = malloc(sizeof(i_list));
 	if (!new_node)
-		return;
+		return ;
 	new_node->num = op;
 	new_node->next = NULL;
 	if (!*list)
 	{
 		*list = new_node;
-		return;
+		return ;
 	}
 	last = *list;
 	while (last->next)
@@ -44,7 +44,7 @@ void store_op(i_list **list, int op)
 	last->next = new_node;
 }
 
-void destroy_stack(t_stack *stack)
+void	destroy_stack(t_stack *stack)
 {
 	if (stack)
 	{
@@ -54,9 +54,9 @@ void destroy_stack(t_stack *stack)
 	}
 }
 
-void free_data(t_stack *stack_a, t_stack *stack_b, i_list *list)
+void	free_data(t_stack *stack_a, t_stack *stack_b, i_list *list)
 {
-	i_list *next;
+	i_list	*next;
 
 	while (list)
 	{

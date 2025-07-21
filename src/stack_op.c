@@ -17,18 +17,18 @@
  * @param list: the list to store the operations
  * @param op: to indicate which operation
  */
-void swap(t_stack *stack, i_list **list, int op)
+void	swap(t_stack *stack, i_list **list, int op)
 {
-	int tmp;
-	int *int_arr;
-	int top;
+	int	tmp;
+	int	*int_arr;
+	int	top;
 
 	top = stack->top;
 	int_arr = stack->arr;
 	if (stack->len >= 2)
 	{
 		tmp = int_arr[top];
-		int_arr[top] = int_arr[top+1];
+		int_arr[top] = int_arr[top + 1];
 		int_arr[top + 1] = tmp;
 	}
 	store_op(list, op);
@@ -37,12 +37,12 @@ void swap(t_stack *stack, i_list **list, int op)
 /* @brief: push top element from_stack to_stack
  * @params op: indicate which operation
  */
-void push(t_stack *from_stack, t_stack *to_stack, i_list **list,  int op)
+void	push(t_stack *from_stack, t_stack *to_stack, i_list **list, int op)
 {
-	int top_value;
+	int	top_value;
 
 	if (is_stack_empty(from_stack))
-		return;
+		return ;
 	top_value = from_stack->arr[from_stack->top];
 	if (is_stack_empty(to_stack))
 	{
@@ -64,13 +64,13 @@ void push(t_stack *from_stack, t_stack *to_stack, i_list **list,  int op)
 
 /*@brief: shift all element up
  */
-void rotate(t_stack *stack, i_list **list, int op)
+void	rotate(t_stack *stack, i_list **list, int op)
 {
-	int top_value;
-	int tmp_top;
+	int	top_value;
+	int	tmp_top;
 
 	if (is_stack_empty(stack))
-		return;
+		return ;
 	tmp_top = stack->top;
 	top_value = stack->arr[tmp_top];
 	while (tmp_top < stack->size - 1)
@@ -84,13 +84,13 @@ void rotate(t_stack *stack, i_list **list, int op)
 
 /*@brief: shift all elements down
  */
-void reverse_rotate(t_stack *stack, i_list **list, int op)
+void	reverse_rotate(t_stack *stack, i_list **list, int op)
 {
-	int bottom_value;
-	int tmp_bot;
+	int	bottom_value;
+	int	tmp_bot;
 
 	if (is_stack_empty(stack))
-		return;
+		return ;
 	tmp_bot = stack->size - 1;
 	bottom_value = stack->arr[tmp_bot];
 	while (tmp_bot > stack->top)
@@ -103,11 +103,12 @@ void reverse_rotate(t_stack *stack, i_list **list, int op)
 }
 
 /* rotate the stack by a specify number of times
-*/
-void do_rotate(t_stack *stack, i_list **list, int op, int num_move)
+ */
+void	do_rotate(t_stack *stack, i_list **list, int op, int num_move)
 {
-	int i = 0;
+	int	i;
 
+	i = 0;
 	while (i++ < num_move)
 	{
 		if (op == ra || op == rb)

@@ -13,27 +13,27 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +27 src/main.c
-badd +18 Makefile
+badd +34 src/main.c
+badd +13 Makefile
 badd +25 libft/libft.h
 badd +14 libft/ft_split.c
 badd +14 libft/ft_count_word.c
 badd +48 libft/Makefile
-badd +97 include/push_swap.h
+badd +77 include/push_swap.h
 badd +2 term://~/hive/pushswap//350770:/usr/bin/fish
 badd +44 src/quicksort.c
-badd +65 TODO.md
+badd +82 TODO.md
 badd +30 libft/ft_atoi.c
-badd +106 src/errors.c
-badd +45 src/parser.c
-badd +53 src/utils.c
+badd +98 src/errors.c
+badd +33 src/parser.c
+badd +29 src/utils.c
 badd +22 libft/ft_calloc.c
 badd +1 src/util
 badd +65 libft/ft_sort.c
 badd +1 src/parser.csrc/operations.c
-badd +109 src/stack_op.c
+badd +49 src/stack_op.c
 badd +5 libft/ft_memmove.c
-badd +59 src/algo.c
+badd +18 src/algo.c
 badd +26 libft/ft_math.c
 badd +1 libft/mak
 badd +47 libft/ft_isany.c
@@ -49,8 +49,8 @@ badd +14 libft/ft_putendl_fd.c
 badd +14 libft/ft_putstr_fd.c
 badd +11 libft/ft_putnbr_fd.c
 badd +5 test
-badd +29 src/algo_helper.c
-badd +35 src/post_algo.c
+badd +109 src/algo_helper.c
+badd +60 src/post_algo.c
 argglobal
 %argdel
 $argadd src/main.c
@@ -78,7 +78,7 @@ set winwidth=1
 exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
 exe 'vert 2resize ' . ((&columns * 137 + 137) / 274)
 argglobal
-balt src/algo_helper.c
+balt src/errors.c
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -89,19 +89,19 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 35) / 70)
+let s:l = 36 - ((35 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 0
+keepjumps 36
+normal! 026|
 wincmd w
 argglobal
-if bufexists(fnamemodify("src/algo.c", ":p")) | buffer src/algo.c | else | edit src/algo.c | endif
+if bufexists(fnamemodify("src/post_algo.c", ":p")) | buffer src/post_algo.c | else | edit src/post_algo.c | endif
 if &buftype ==# 'terminal'
-  silent file src/algo.c
+  silent file src/post_algo.c
 endif
-balt libft/ft_sort.c
+balt src/parser.c
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -112,17 +112,18 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 60 - ((59 * winheight(0) + 35) / 70)
+let s:l = 62 - ((55 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 60
-normal! 012|
+keepjumps 62
+normal! 05|
 wincmd w
+2wincmd w
 exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
 exe 'vert 2resize ' . ((&columns * 137 + 137) / 274)
 tabnext
-edit Makefile
+edit src/post_algo.c
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -142,7 +143,7 @@ set winwidth=1
 exe 'vert 1resize ' . ((&columns * 137 + 137) / 274)
 exe 'vert 2resize ' . ((&columns * 136 + 137) / 274)
 argglobal
-balt src/parser.c
+balt src/utils.c
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -153,12 +154,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 18 - ((17 * winheight(0) + 35) / 70)
+let s:l = 61 - ((60 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 18
-normal! 09|
+keepjumps 61
+normal! 030|
 wincmd w
 argglobal
 if bufexists(fnamemodify("include/push_swap.h", ":p")) | buffer include/push_swap.h | else | edit include/push_swap.h | endif
@@ -176,11 +177,11 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 97 - ((69 * winheight(0) + 35) / 70)
+let s:l = 110 - ((34 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 97
+keepjumps 110
 normal! 06|
 wincmd w
 exe 'vert 1resize ' . ((&columns * 137 + 137) / 274)
