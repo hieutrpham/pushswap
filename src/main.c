@@ -38,7 +38,7 @@ int main(int ac, char **av)
 		// scan from the top and bottom and search for the matching number in current chunk
 		while ((index_top != -1 || index_bot != -1) && !is_stack_empty(stack_a))
 		{
-			// move target index to the top and push to b (also have to prep b)
+			// move target index to the top and push to b
 			int num_ra = index_top - stack_a->top;
 			int num_rra = stack_a->size - index_bot;
 			if (num_ra <= num_rra)

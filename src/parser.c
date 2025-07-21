@@ -99,5 +99,6 @@ t_stack *build_empty_stack(unsigned int size)
 	stack->top = -1;
 	stack->len = 0;
 	stack->chunk_size = 0;
+	stack->sorted_arr = NULL;
 	return stack;
 }

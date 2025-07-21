@@ -16,17 +16,15 @@ void prep_stack_b(t_stack *stack_a, i_list **list, t_stack *stack_b)
 {
 	int max_b;
 	int min_b;
-	int top_a;
 	int closest;
 
 	closest = stack_b->top;
-	top_a = stack_a->top;
 	min_b = find_min(stack_b);
 	max_b = find_max(stack_b);
 	if (is_stack_empty(stack_b) || stack_b->len < 2)
 		return;
-	if (stack_a->arr[top_a] > stack_b->arr[max_b] ||
-		stack_a->arr[top_a] < stack_b->arr[min_b])
+	if (stack_a->arr[stack_a->top] > stack_b->arr[max_b] ||
+		stack_a->arr[stack_a->top] < stack_b->arr[min_b])
 	{
 		if (max_b <= (stack_b->size + stack_b->top) / 2)
 			do_rotate(stack_b, list, rb, max_b - stack_b->top);

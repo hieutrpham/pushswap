@@ -49,3 +49,30 @@ void print_list(i_list *list)
 	}
 }
 
+void tune_ra_rb(i_list *list)
+{
+	int count_ra;
+	int count_rb;
+
+	count_ra = 0;
+	count_rb = 0;
+	while (list)
+	{
+		if (list->num == ra && (list->next->num == ra || list->next->num == rb))
+			count_ra++;
+		else if (list->num == rb && (list->next->num == ra || list->next->num == rb))
+			count_rb++;
+		else
+		{
+			count_ra = 0;
+			count_rb = 0;
+		}
+		list = list->next;
+	}
+	int i = 0;
+	if (count_ra == count_rb)
+	{
+		while (i++ < count_ra)
+			ft_printf("rr\n");
+	}
+}

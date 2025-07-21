@@ -13,8 +13,8 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +52 src/main.c
-badd +12 Makefile
+badd +78 src/main.c
+badd +1 Makefile
 badd +25 libft/libft.h
 badd +14 libft/ft_split.c
 badd +14 libft/ft_count_word.c
@@ -25,7 +25,7 @@ badd +44 src/quicksort.c
 badd +65 TODO.md
 badd +30 libft/ft_atoi.c
 badd +106 src/errors.c
-badd +18 src/parser.c
+badd +101 src/parser.c
 badd +36 src/utils.c
 badd +22 libft/ft_calloc.c
 badd +1 src/util
@@ -33,7 +33,7 @@ badd +2 libft/ft_sort.c
 badd +1 src/parser.csrc/operations.c
 badd +109 src/stack_op.c
 badd +5 libft/ft_memmove.c
-badd +15 src/algo.c
+badd +33 src/algo.c
 badd +26 libft/ft_math.c
 badd +1 libft/mak
 badd +47 libft/ft_isany.c
@@ -50,7 +50,7 @@ badd +14 libft/ft_putstr_fd.c
 badd +11 libft/ft_putnbr_fd.c
 badd +5 test
 badd +3 src/algo_helper.c
-badd +28 src/post_algo.c
+badd +38 src/post_algo.c
 argglobal
 %argdel
 $argadd src/main.c
@@ -89,19 +89,19 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 52 - ((42 * winheight(0) + 31) / 62)
+let s:l = 57 - ((23 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 52
-normal! 069|
+keepjumps 57
+normal! 013|
 wincmd w
 argglobal
 if bufexists(fnamemodify("src/post_algo.c", ":p")) | buffer src/post_algo.c | else | edit src/post_algo.c | endif
 if &buftype ==# 'terminal'
   silent file src/post_algo.c
 endif
-balt src/algo_helper.c
+balt src/algo.c
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -112,13 +112,14 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 41 - ((40 * winheight(0) + 31) / 62)
+let s:l = 1 - ((0 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 41
-normal! 05|
+keepjumps 1
+normal! 0
 wincmd w
+2wincmd w
 exe 'vert 1resize ' . ((&columns * 116 + 120) / 240)
 exe 'vert 2resize ' . ((&columns * 123 + 120) / 240)
 tabnext
@@ -208,7 +209,7 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 exe '1resize ' . ((&lines * 60 + 32) / 65)
-exe 'vert 1resize ' . ((&columns * 58 + 120) / 240)
+exe 'vert 1resize ' . ((&columns * 180 + 120) / 240)
 exe '2resize ' . ((&lines * 29 + 32) / 65)
 exe 'vert 2resize ' . ((&columns * 59 + 120) / 240)
 exe '3resize ' . ((&lines * 30 + 32) / 65)
@@ -279,7 +280,7 @@ keepjumps 20
 normal! 020|
 wincmd w
 exe '1resize ' . ((&lines * 60 + 32) / 65)
-exe 'vert 1resize ' . ((&columns * 58 + 120) / 240)
+exe 'vert 1resize ' . ((&columns * 180 + 120) / 240)
 exe '2resize ' . ((&lines * 29 + 32) / 65)
 exe 'vert 2resize ' . ((&columns * 59 + 120) / 240)
 exe '3resize ' . ((&lines * 30 + 32) / 65)
