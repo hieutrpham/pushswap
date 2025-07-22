@@ -13,7 +13,7 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +21 src/main.c
+badd +25 src/main.c
 badd +22 Makefile
 badd +127 libft/libft.h
 badd +14 libft/ft_split.c
@@ -33,7 +33,7 @@ badd +65 libft/ft_sort.c
 badd +1 src/parser.csrc/operations.c
 badd +82 src/stack_op.c
 badd +5 libft/ft_memmove.c
-badd +126 src/algo.c
+badd +108 src/algo.c
 badd +44 libft/ft_math.c
 badd +1 libft/mak
 badd +47 libft/ft_isany.c
@@ -52,14 +52,14 @@ badd +5 test
 badd +109 src/algo_helper.c
 badd +17 src/post_algo.c
 badd +45 src/tuning.c
-badd +30 src/minisort.c
+badd +70 src/minisort.c
 argglobal
 %argdel
 $argadd src/main.c
 set stal=2
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
-edit src/main.c
+edit src/algo.c
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -79,7 +79,7 @@ set winwidth=1
 exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
 exe 'vert 2resize ' . ((&columns * 137 + 137) / 274)
 argglobal
-balt src/algo.c
+balt src/main.c
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -90,12 +90,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 35) / 70)
+let s:l = 111 - ((39 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 0
+keepjumps 111
+normal! 05|
 wincmd w
 argglobal
 if bufexists(fnamemodify("src/minisort.c", ":p")) | buffer src/minisort.c | else | edit src/minisort.c | endif
@@ -113,12 +113,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 26 - ((22 * winheight(0) + 35) / 70)
+let s:l = 70 - ((66 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 26
-normal! 026|
+keepjumps 70
+normal! 0
 wincmd w
 exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
 exe 'vert 2resize ' . ((&columns * 137 + 137) / 274)
@@ -184,9 +184,10 @@ normal! zt
 keepjumps 122
 normal! 045|
 wincmd w
+2wincmd w
 exe 'vert 1resize ' . ((&columns * 137 + 137) / 274)
 exe 'vert 2resize ' . ((&columns * 136 + 137) / 274)
-tabnext 1
+tabnext 2
 set stal=1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

@@ -6,7 +6,7 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 07:40:05 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/22 15:35:52 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/22 15:37:18 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -17,7 +17,7 @@ static void	init_sort(t_stack *stack_a, t_stack *stack_b, t_node **list)
 		sort_three(stack_a, list);
 	else if (stack_a->size == 2)
 		sort_two(stack_a, list);
-	else if (stack_a->size == 5)
+	else if (stack_a->size == 5 || stack_a->size == 4)
 		sort_five(stack_a, stack_b, list);
 	else if (stack_a->size == 100)
 	{

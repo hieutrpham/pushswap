@@ -12,21 +12,21 @@
 
 #include "../include/push_swap.h"
 
-void sort_two(t_stack *stack, t_node **list)
+void	sort_two(t_stack *stack, t_node **list)
 {
 	if (!is_sorted(stack->arr, stack->size))
 		swap(stack, list, sa);
 }
 
-void sort_three(t_stack *stack, t_node **list)
+void	sort_three(t_stack *stack, t_node **list)
 {
-	int max;
-	int min;
+	int	max;
+	int	min;
 
 	min = find_min(stack);
 	max = find_max(stack);
 	if (is_sorted(stack->arr, stack->size))
-		return;
+		return ;
 	if (max == stack->size - 1)
 		swap(stack, list, sa);
 	else if (max == stack->top && min == stack->size - 1)
@@ -45,11 +45,11 @@ void sort_three(t_stack *stack, t_node **list)
 		rotate(stack, list, rra);
 }
 
-void sort_five(t_stack *stack_a, t_stack *stack_b, t_node **list)
+void	sort_five(t_stack *stack_a, t_stack *stack_b, t_node **list)
 {
-	int min;
-	int num_ra;
-	int num_rra;
+	int	min;
+	int	num_ra;
+	int	num_rra;
 
 	min = find_min(stack_a);
 	while (stack_a->len > 3)
@@ -66,5 +66,5 @@ void sort_five(t_stack *stack_a, t_stack *stack_b, t_node **list)
 	sort_three(stack_a, list);
 	while (!is_stack_empty(stack_b))
 		push(stack_b, stack_a, list, pa);
-	return;
+	return ;
 }

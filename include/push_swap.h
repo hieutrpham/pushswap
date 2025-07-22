@@ -119,7 +119,8 @@ int					tune_rra_rrb(t_node **list);
 /************************minisort.c**********************
  * print instructions and optimization to eliminate redundance instruction
  ********************************************************/
-void sort_two(t_stack *stack, t_node **list);
-void sort_three(t_stack *stack, t_node **list);
-void sort_five(t_stack *stack_a, t_stack *stack_b, t_node **list);
+void				sort_two(t_stack *stack, t_node **list);
+void				sort_three(t_stack *stack, t_node **list);
+void				sort_five(t_stack *stack_a, t_stack *stack_b,
+						t_node **list);
 #endif
