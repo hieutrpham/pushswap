@@ -21,22 +21,22 @@ int	tune_ra_rb(t_node **list)
 	count_rb = 0;
 	while (*list && (*list)->next)
 	{
-		if ((*list)->num == ra && ((*list)->next->num == ra ||
-			(*list)->next->num == rb))
+		if ((*list)->num == ra && ((*list)->next->num == ra
+				|| (*list)->next->num == rb))
 		{
 			count_ra++;
 			(*list) = (*list)->next;
 		}
-		else if ((*list)->num == rb && ((*list)->next->num == rb ||
-			(*list)->next->num != rb))
+		else if ((*list)->num == rb && ((*list)->next->num == rb
+				|| (*list)->next->num != rb))
 		{
 			count_rb++;
 			(*list) = (*list)->next;
 			if ((*list)->next->num != rb)
-				break;
+				break ;
 		}
 		else
-			break;
+			break ;
 	}
 	return (print_count(count_ra, count_rb, rr), count_ra);
 }
@@ -50,22 +50,22 @@ int	tune_rra_rrb(t_node **list)
 	count_rrb = 0;
 	while (*list && (*list)->next)
 	{
-		if ((*list)->num == rra && ((*list)->next->num == rra ||
-			(*list)->next->num == rrb))
+		if ((*list)->num == rra && ((*list)->next->num == rra
+				|| (*list)->next->num == rrb))
 		{
 			count_rra++;
 			(*list) = (*list)->next;
 		}
-		else if ((*list)->num == rrb && ((*list)->next->num == rrb ||
-			(*list)->next->num != rrb))
+		else if ((*list)->num == rrb && ((*list)->next->num == rrb
+				|| (*list)->next->num != rrb))
 		{
 			count_rrb++;
 			(*list) = (*list)->next;
-			if ((*list)->next->num !=rrb)
-				break;
+			if ((*list)->next->num != rrb)
+				break ;
 		}
 		else
-			break;
+			break ;
 	}
 	return (print_count(count_rra, count_rrb, rrr), count_rra);
 }

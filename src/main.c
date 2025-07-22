@@ -6,19 +6,31 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 07:40:05 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/22 11:53:58 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/22 15:35:52 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
 
 static void	init_sort(t_stack *stack_a, t_stack *stack_b, t_node **list)
 {
-	if (stack_a->size == 500)
-		insert_sort(stack_a, stack_b, list, 40);
-	if (stack_a->size == 100)
+	if (stack_a->size == 3)
+		sort_three(stack_a, list);
+	else if (stack_a->size == 2)
+		sort_two(stack_a, list);
+	else if (stack_a->size == 5)
+		sort_five(stack_a, stack_b, list);
+	else if (stack_a->size == 100)
+	{
 		insert_sort(stack_a, stack_b, list, 18);
+		post_insert_prep(stack_a, stack_b, list);
+		sort_b_and_pa(stack_a, stack_b, list);
+	}
 	else
+	{
 		insert_sort(stack_a, stack_b, list, -1);
+		post_insert_prep(stack_a, stack_b, list);
+		sort_b_and_pa(stack_a, stack_b, list);
+	}
 }
 
 int	main(int ac, char **av)
@@ -39,8 +51,6 @@ int	main(int ac, char **av)
 		return (destroy_stack(stack_a), EXIT_FAILURE);
 	node = NULL;
 	init_sort(stack_a, stack_b, &node);
-	post_insert_prep(stack_a, stack_b, &node);
-	sort_b_and_pa(stack_a, stack_b, &node);
 	print_list(node);
 	free_data(stack_a, stack_b, node);
 	return (EXIT_SUCCESS);

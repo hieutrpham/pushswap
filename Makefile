@@ -18,6 +18,7 @@ SRC = main.c \
 		algo_helper.c \
 		post_algo.c \
 		tuning.c \
+		minisort.c \
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 

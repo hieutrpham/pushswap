@@ -25,9 +25,9 @@ void	print_list(t_node *list)
 		if (list->num == pb)
 			ft_printf("pb\n");
 		if (list->num == ra && tune_ra_rb(&list))
-			continue;
+			continue ;
 		if (list->num == rra && tune_rra_rrb(&list))
-			continue;
+			continue ;
 		if (list->num == rb)
 			ft_printf("rb\n");
 		if (list->num == rrb)
@@ -36,10 +36,10 @@ void	print_list(t_node *list)
 	}
 }
 
-static void print_multiple(int op, int times)
+static void	print_multiple(int op, int times)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (i++ < times)
 	{
@@ -58,7 +58,7 @@ static void print_multiple(int op, int times)
 	}
 }
 
-void print_count(int count_ra, int count_rb, int op)
+void	print_count(int count_ra, int count_rb, int op)
 {
 	if (op == rr)
 	{

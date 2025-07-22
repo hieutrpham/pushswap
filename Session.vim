@@ -13,13 +13,13 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +47 src/main.c
-badd +61 Makefile
+badd +21 src/main.c
+badd +22 Makefile
 badd +127 libft/libft.h
 badd +14 libft/ft_split.c
 badd +14 libft/ft_count_word.c
 badd +48 libft/Makefile
-badd +118 include/push_swap.h
+badd +122 include/push_swap.h
 badd +2 term://~/hive/pushswap//350770:/usr/bin/fish
 badd +44 src/quicksort.c
 badd +83 TODO.md
@@ -31,9 +31,9 @@ badd +22 libft/ft_calloc.c
 badd +1 src/util
 badd +65 libft/ft_sort.c
 badd +1 src/parser.csrc/operations.c
-badd +49 src/stack_op.c
+badd +82 src/stack_op.c
 badd +5 libft/ft_memmove.c
-badd +115 src/algo.c
+badd +126 src/algo.c
 badd +44 libft/ft_math.c
 badd +1 libft/mak
 badd +47 libft/ft_isany.c
@@ -50,15 +50,16 @@ badd +14 libft/ft_putstr_fd.c
 badd +11 libft/ft_putnbr_fd.c
 badd +5 test
 badd +109 src/algo_helper.c
-badd +45 src/post_algo.c
-badd +2 src/tuning.c
+badd +17 src/post_algo.c
+badd +45 src/tuning.c
+badd +30 src/minisort.c
 argglobal
 %argdel
 $argadd src/main.c
 set stal=2
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
-edit src/stack_op.c
+edit src/main.c
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -78,7 +79,7 @@ set winwidth=1
 exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
 exe 'vert 2resize ' . ((&columns * 137 + 137) / 274)
 argglobal
-balt src/utils.c
+balt src/algo.c
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -97,11 +98,11 @@ keepjumps 1
 normal! 0
 wincmd w
 argglobal
-if bufexists(fnamemodify("src/main.c", ":p")) | buffer src/main.c | else | edit src/main.c | endif
+if bufexists(fnamemodify("src/minisort.c", ":p")) | buffer src/minisort.c | else | edit src/minisort.c | endif
 if &buftype ==# 'terminal'
-  silent file src/main.c
+  silent file src/minisort.c
 endif
-balt src/post_algo.c
+balt src/main.c
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -112,12 +113,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 44 - ((43 * winheight(0) + 35) / 70)
+let s:l = 26 - ((22 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 44
-normal! 021|
+keepjumps 26
+normal! 026|
 wincmd w
 exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
 exe 'vert 2resize ' . ((&columns * 137 + 137) / 274)
@@ -153,12 +154,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 61 - ((60 * winheight(0) + 35) / 70)
+let s:l = 23 - ((22 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 61
-normal! 015|
+keepjumps 23
+normal! 09|
 wincmd w
 argglobal
 if bufexists(fnamemodify("include/push_swap.h", ":p")) | buffer include/push_swap.h | else | edit include/push_swap.h | endif
@@ -176,12 +177,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 108 - ((59 * winheight(0) + 35) / 70)
+let s:l = 122 - ((66 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 108
-normal! 025|
+keepjumps 122
+normal! 045|
 wincmd w
 exe 'vert 1resize ' . ((&columns * 137 + 137) / 274)
 exe 'vert 2resize ' . ((&columns * 136 + 137) / 274)

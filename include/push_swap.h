@@ -6,7 +6,7 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 07:45:38 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/22 11:53:58 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/22 15:01:02 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,4 +115,11 @@ void				print_count(int count_ra, int count_rb, int op);
  ********************************************************/
 int					tune_ra_rb(t_node **list);
 int					tune_rra_rrb(t_node **list);
+
+/************************minisort.c**********************
+ * print instructions and optimization to eliminate redundance instruction
+ ********************************************************/
+void sort_two(t_stack *stack, t_node **list);
+void sort_three(t_stack *stack, t_node **list);
+void sort_five(t_stack *stack_a, t_stack *stack_b, t_node **list);
 #endif
