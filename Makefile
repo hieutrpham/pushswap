@@ -17,6 +17,7 @@ SRC = main.c \
 		algo.c \
 		algo_helper.c \
 		post_algo.c \
+		tuning.c \
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 

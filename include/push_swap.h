@@ -6,7 +6,7 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 07:45:38 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/20 21:03:55 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/22 10:20:53 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,11 @@ void				destroy_stack(t_stack *stack);
  * print instructions and optimization to eliminate redundance instruction
  ********************************************************/
 void	print_list(i_list *list);
+void	print_count(int count_ra, int count_rb, int op);
+
+/************************tuning.c**********************
+ * print instructions and optimization to eliminate redundance instruction
+ ********************************************************/
 int		tune_ra_rb(i_list **list);
 int		tune_rra_rrb(i_list **list);
 #endif
