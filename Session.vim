@@ -13,13 +13,13 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +35 src/main.c
+badd +47 src/main.c
 badd +22 Makefile
 badd +127 libft/libft.h
 badd +14 libft/ft_split.c
 badd +14 libft/ft_count_word.c
 badd +48 libft/Makefile
-badd +89 include/push_swap.h
+badd +126 include/push_swap.h
 badd +2 term://~/hive/pushswap//350770:/usr/bin/fish
 badd +44 src/quicksort.c
 badd +83 TODO.md
@@ -52,7 +52,7 @@ badd +5 test
 badd +109 src/algo_helper.c
 badd +17 src/post_algo.c
 badd +45 src/tuning.c
-badd +62 src/minisort.c
+badd +46 src/minisort.c
 argglobal
 %argdel
 $argadd src/main.c
@@ -97,12 +97,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 99 - ((27 * winheight(0) + 35) / 70)
+let s:l = 114 - ((41 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 99
-normal! 0
+keepjumps 114
+normal! 030|
 wincmd w
 argglobal
 if bufexists(fnamemodify("src/minisort.c", ":p")) | buffer src/minisort.c | else | edit src/minisort.c | endif
@@ -120,12 +120,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 62 - ((28 * winheight(0) + 17) / 34)
+let s:l = 30 - ((16 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 62
-normal! 0
+keepjumps 30
+normal! 09|
 wincmd w
 argglobal
 if bufexists(fnamemodify("src/main.c", ":p")) | buffer src/main.c | else | edit src/main.c | endif
@@ -143,14 +143,13 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 25 - ((24 * winheight(0) + 17) / 35)
+let s:l = 46 - ((24 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 25
-normal! 0
+keepjumps 46
+normal! 047|
 wincmd w
-2wincmd w
 exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
 exe '2resize ' . ((&lines * 34 + 36) / 73)
 exe 'vert 2resize ' . ((&columns * 137 + 137) / 274)
@@ -188,12 +187,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 23 - ((22 * winheight(0) + 35) / 70)
+let s:l = 12 - ((11 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 23
-normal! 09|
+keepjumps 12
+normal! 06|
 wincmd w
 argglobal
 if bufexists(fnamemodify("include/push_swap.h", ":p")) | buffer include/push_swap.h | else | edit include/push_swap.h | endif
@@ -211,12 +210,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 89 - ((34 * winheight(0) + 35) / 70)
+let s:l = 126 - ((56 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 89
-normal! 060|
+keepjumps 126
+normal! 06|
 wincmd w
 exe 'vert 1resize ' . ((&columns * 137 + 137) / 274)
 exe 'vert 2resize ' . ((&columns * 136 + 137) / 274)

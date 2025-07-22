@@ -6,7 +6,7 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:04:27 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/22 11:53:58 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/22 16:08:48 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,12 +104,13 @@ void	post_insert_prep(t_stack *stack_a, t_stack *stack_b, t_node **list)
 	int	i;
 
 	i = stack_a->top;
-	while (!is_stack_empty(stack_a))
+	while (stack_a->len > 3)
 	{
 		prep_stack_b(stack_a, list, stack_b);
 		push(stack_a, stack_b, list, pb);
 		i++;
 	}
+	sort_three(stack_a, list);
 }
 
 /*@brief: sort stack b after insertion and push back all elements to stack a

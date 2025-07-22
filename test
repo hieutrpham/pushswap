@@ -55,6 +55,8 @@ check() {
 main() {
 	check 3 1000
 	check 5 1000
+	check 100 100
+	check 500 100
 	test 3 1000
 	test 5 1000
 	test 100 100
