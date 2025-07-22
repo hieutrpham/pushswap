@@ -20,9 +20,9 @@ for ((i=0; i<1000; i++)); do
 	elif ((op >= max_100))
 	then max_100=$op
 	fi
-	if ((op > 1000))
-	then echo -n "$arg_100"
-	fi
+	# if ((op > 1000))
+	# then echo -n "$arg_100"
+	# fi
 	((avg_100+=$op))
 done
 
@@ -46,9 +46,9 @@ for ((i=0; i<100; i++)); do
 	elif ((op >= max_500))
 	then max_500=$op
 	fi
-	if ((op > 20000))
-	then echo -n "$arg_500"; break
-	fi
+	# if ((op > 20000))
+	# then echo -n "$arg_500"; break
+	# fi
 	((avg_500+=$op))
 done
 

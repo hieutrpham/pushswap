@@ -6,7 +6,7 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:14:17 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/14 11:42:14 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/22 11:55:20 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ bool	is_stack_empty(t_stack *stack)
 	return (stack->top < 0);
 }
 
-void	store_op(i_list **list, int op)
+void	store_op(t_node **list, int op)
 {
-	i_list	*new_node;
-	i_list	*last;
+	t_node	*new_node;
+	t_node	*last;
 
-	new_node = malloc(sizeof(i_list));
+	new_node = malloc(sizeof(t_node));
 	if (!new_node)
 		return ;
 	new_node->num = op;
@@ -54,9 +54,9 @@ void	destroy_stack(t_stack *stack)
 	}
 }
 
-void	free_data(t_stack *stack_a, t_stack *stack_b, i_list *list)
+void	free_data(t_stack *stack_a, t_stack *stack_b, t_node *list)
 {
-	i_list	*next;
+	t_node	*next;
 
 	while (list)
 	{

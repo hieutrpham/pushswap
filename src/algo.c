@@ -6,7 +6,7 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:04:27 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/20 20:58:48 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/22 11:53:58 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*@brief: prepare stack a so that the element with the least moves are
  * moved first
  */
-static void	prep_stack_a(t_stack *stack_a, i_list **list, int index_top,
+static void	prep_stack_a(t_stack *stack_a, t_node **list, int index_top,
 		int index_bot)
 {
 	int	num_ra;
@@ -37,7 +37,7 @@ static void	prep_stack_a(t_stack *stack_a, i_list **list, int index_top,
 
 /*@brief: prepare stack b to push the top element in stack a in the correct slot
  */
-static void	prep_stack_b(t_stack *stack_a, i_list **list, t_stack *stack_b)
+static void	prep_stack_b(t_stack *stack_a, t_node **list, t_stack *stack_b)
 {
 	int	max_b;
 	int	min_b;
@@ -69,37 +69,37 @@ static void	prep_stack_b(t_stack *stack_a, i_list **list, t_stack *stack_b)
 /*@brief: core algorithm that insert elements from stack a to stack b
  * based on a presorted array
  */
-void	insert_sort(t_stack *stack_a, t_stack *stack_b, i_list **list)
+void	insert_sort(t_stack *stack_a, t_stack *stack_b, t_node **list,
+		int chunk_size)
 {
-	int	start_index;
-	int	end_index;
 	int	index_top;
 	int	index_bot;
 	int	i;
+	int	size;
 
-	i = 0;
-	while (i < stack_a->chunk_size)
+	if (chunk_size > 0)
+		size = chunk_size;
+	else
+		size = stack_a->chunk_size;
+	i = -1;
+	while (++i < size)
 	{
-		start_index = i * stack_a->chunk_size;
-		end_index = (i + 1) * stack_a->chunk_size - 1;
-		index_top = scan_top(stack_a, start_index, end_index);
-		index_bot = scan_bottom(stack_a, start_index, end_index);
+		index_top = scan_top(stack_a, i * size, (i + 1) * size - 1);
+		index_bot = scan_bottom(stack_a, i * size, (i + 1) * size - 1);
 		while ((index_top != -1 || index_bot != -1) && !is_stack_empty(stack_a))
 		{
 			prep_stack_a(stack_a, list, index_top, index_bot);
 			prep_stack_b(stack_a, list, stack_b);
 			push(stack_a, stack_b, list, pb);
-			index_top = scan_top(stack_a, start_index, end_index);
-			index_bot = scan_bottom(stack_a, start_index, end_index);
+			index_top = scan_top(stack_a, i * size, (i + 1) * size - 1);
+			index_bot = scan_bottom(stack_a, i * size, (i + 1) * size - 1);
 		}
-		i++;
 	}
 }
 
 /*@brief: push the rest of stack a to stack b
- * NOTE: can I optimize for this some more?
  */
-void	post_insert_prep(t_stack *stack_a, t_stack *stack_b, i_list **list)
+void	post_insert_prep(t_stack *stack_a, t_stack *stack_b, t_node **list)
 {
 	int	i;
 
@@ -114,7 +114,7 @@ void	post_insert_prep(t_stack *stack_a, t_stack *stack_b, i_list **list)
 
 /*@brief: sort stack b after insertion and push back all elements to stack a
  */
-void	sort_b_and_pa(t_stack *stack_a, t_stack *stack_b, i_list **list)
+void	sort_b_and_pa(t_stack *stack_a, t_stack *stack_b, t_node **list)
 {
 	int	max_b;
 	int	num_rb;

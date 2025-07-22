@@ -6,7 +6,7 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 18:29:55 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/10 22:49:08 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/22 11:55:42 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * @param list: the list to store the operations
  * @param op: to indicate which operation
  */
-void	swap(t_stack *stack, i_list **list, int op)
+void	swap(t_stack *stack, t_node **list, int op)
 {
 	int	tmp;
 	int	*int_arr;
@@ -37,7 +37,7 @@ void	swap(t_stack *stack, i_list **list, int op)
 /* @brief: push top element from_stack to_stack
  * @params op: indicate which operation
  */
-void	push(t_stack *from_stack, t_stack *to_stack, i_list **list, int op)
+void	push(t_stack *from_stack, t_stack *to_stack, t_node **list, int op)
 {
 	int	top_value;
 
@@ -64,7 +64,7 @@ void	push(t_stack *from_stack, t_stack *to_stack, i_list **list, int op)
 
 /*@brief: shift all element up
  */
-void	rotate(t_stack *stack, i_list **list, int op)
+void	rotate(t_stack *stack, t_node **list, int op)
 {
 	int	top_value;
 	int	tmp_top;
@@ -84,7 +84,7 @@ void	rotate(t_stack *stack, i_list **list, int op)
 
 /*@brief: shift all elements down
  */
-void	reverse_rotate(t_stack *stack, i_list **list, int op)
+void	reverse_rotate(t_stack *stack, t_node **list, int op)
 {
 	int	bottom_value;
 	int	tmp_bot;
@@ -104,7 +104,7 @@ void	reverse_rotate(t_stack *stack, i_list **list, int op)
 
 /* rotate the stack by a specify number of times
  */
-void	do_rotate(t_stack *stack, i_list **list, int op, int num_move)
+void	do_rotate(t_stack *stack, t_node **list, int op, int num_move)
 {
 	int	i;
 

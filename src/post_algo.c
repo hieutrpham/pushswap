@@ -6,13 +6,13 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 21:03:10 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/22 10:35:40 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/22 11:54:35 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	print_list(i_list *list)
+void	print_list(t_node *list)
 {
 	while (list)
 	{

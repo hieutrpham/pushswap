@@ -6,16 +6,26 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 07:40:05 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/20 22:01:57 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/22 11:53:58 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
+
+static void	init_sort(t_stack *stack_a, t_stack *stack_b, t_node **list)
+{
+	if (stack_a->size == 500)
+		insert_sort(stack_a, stack_b, list, 40);
+	if (stack_a->size == 100)
+		insert_sort(stack_a, stack_b, list, 18);
+	else
+		insert_sort(stack_a, stack_b, list, -1);
+}
 
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	i_list	*node;
+	t_node	*node;
 
 	check_input(ac, av);
 	stack_a = build_stack(ac, av);
@@ -28,7 +38,7 @@ int	main(int ac, char **av)
 	if (!stack_b)
 		return (destroy_stack(stack_a), EXIT_FAILURE);
 	node = NULL;
-	insert_sort(stack_a, stack_b, &node);
+	init_sort(stack_a, stack_b, &node);
 	post_insert_prep(stack_a, stack_b, &node);
 	sort_b_and_pa(stack_a, stack_b, &node);
 	print_list(node);

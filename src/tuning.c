@@ -6,13 +6,13 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 10:19:51 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/22 10:45:07 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/22 11:54:37 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	tune_ra_rb(i_list **list)
+int	tune_ra_rb(t_node **list)
 {
 	int	count_ra;
 	int	count_rb;
@@ -41,7 +41,7 @@ int	tune_ra_rb(i_list **list)
 	return (print_count(count_ra, count_rb, rr), count_ra);
 }
 
-int	tune_rra_rrb(i_list **list)
+int	tune_rra_rrb(t_node **list)
 {
 	int	count_rra;
 	int	count_rrb;

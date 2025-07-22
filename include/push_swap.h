@@ -6,7 +6,7 @@
 /*   By: trupham <trupham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 07:45:38 by trupham           #+#    #+#             */
-/*   Updated: 2025/07/22 10:20:53 by trupham          ###   ########.fr       */
+/*   Updated: 2025/07/22 11:53:58 by trupham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct i_list
 {
 	int				num;
 	struct i_list	*next;
-}					i_list;
+}					t_node;
 
 enum
 {
@@ -56,12 +56,12 @@ enum
 /**********************stack_op.c**********************
  * stack operation
  ******************************************************/
-void				swap(t_stack *stack, i_list **list, int op);
-void				push(t_stack *from_stack, t_stack *to_stack, i_list **list,
+void				swap(t_stack *stack, t_node **list, int op);
+void				push(t_stack *from_stack, t_stack *to_stack, t_node **list,
 						int op);
-void				rotate(t_stack *stack, i_list **list, int op);
-void				reverse_rotate(t_stack *stack, i_list **list, int op);
-void				do_rotate(t_stack *stack, i_list **list, int op,
+void				rotate(t_stack *stack, t_node **list, int op);
+void				reverse_rotate(t_stack *stack, t_node **list, int op);
+void				do_rotate(t_stack *stack, t_node **list, int op,
 						int num_move);
 
 /************************parser.c**********************
@@ -80,11 +80,11 @@ void				check_dup(t_stack *stack);
  * functions related to algorithm
  ******************************************************/
 void				insert_sort(t_stack *stack_a, t_stack *stack_b,
-						i_list **list);
+						t_node **list, int chunk_size);
 void				sort_b_and_pa(t_stack *stack_a, t_stack *stack_b,
-						i_list **list);
+						t_node **list);
 void				post_insert_prep(t_stack *stack_a, t_stack *stack_b,
-						i_list **list);
+						t_node **list);
 
 /************************algo_helper.c**********************
  * helper functions related to algorithm
@@ -100,19 +100,19 @@ int					find_closest_smaller(t_stack *stack_a, t_stack *stack_b);
  ******************************************************/
 void				exit_error(void);
 bool				is_stack_empty(t_stack *stack);
-void				store_op(i_list **list, int op);
-void				free_data(t_stack *stack_a, t_stack *stack_b, i_list *list);
+void				store_op(t_node **list, int op);
+void				free_data(t_stack *stack_a, t_stack *stack_b, t_node *list);
 void				destroy_stack(t_stack *stack);
 
 /************************post_algo.c**********************
  * print instructions and optimization to eliminate redundance instruction
  ********************************************************/
-void	print_list(i_list *list);
-void	print_count(int count_ra, int count_rb, int op);
+void				print_list(t_node *list);
+void				print_count(int count_ra, int count_rb, int op);
 
 /************************tuning.c**********************
  * print instructions and optimization to eliminate redundance instruction
  ********************************************************/
-int		tune_ra_rb(i_list **list);
-int		tune_rra_rrb(i_list **list);
+int					tune_ra_rb(t_node **list);
+int					tune_rra_rrb(t_node **list);
 #endif
