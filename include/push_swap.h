@@ -47,8 +47,10 @@ enum
 	pb,
 	ra,
 	rb,
+	rr,
 	rra,
 	rrb,
+	rrr,
 };
 
 /**********************stack_op.c**********************
@@ -106,5 +108,6 @@ void				destroy_stack(t_stack *stack);
  * print instructions and optimization to eliminate redundance instruction
  ********************************************************/
 void	print_list(i_list *list);
-void	tune_ra_rb(i_list *list);
+int		tune_ra_rb(i_list **list);
+int		tune_rra_rrb(i_list **list);
 #endif

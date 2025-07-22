@@ -30,7 +30,7 @@ int ft_min(int num1, int num2)
 {
 	if (num1 > num2)
 		return num2;
-	else if (num2 > num1)
+	else if (num2 >= num1)
 		return num1;
 	else
 		return INT_MIN;
@@ -38,7 +38,7 @@ int ft_min(int num1, int num2)
 
 int ft_max(int num1, int num2)
 {
-	if (num1 > num2)
+	if (num1 >= num2)
 		return num1;
 	else if (num2 > num1)
 		return num2;

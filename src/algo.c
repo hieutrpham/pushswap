@@ -96,8 +96,8 @@ void	insert_sort(t_stack *stack_a, t_stack *stack_b, i_list **list)
 	}
 }
 
-/*@brief: prep stack a to receive the push from stack b
- * NOTE: can optimize for stack len 3
+/*@brief: push the rest of stack a to stack b
+ * NOTE: can I optimize for this some more?
  */
 void	post_insert_prep(t_stack *stack_a, t_stack *stack_b, i_list **list)
 {
