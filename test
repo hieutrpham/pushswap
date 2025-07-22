@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+yell=$(tput setaf 178)
 green=$(tput setaf 2)
 reset=$(tput setaf 255)
 red=$(tput setaf 9)
@@ -24,14 +25,36 @@ test() {
 		((avg+=$op))
 	done
 
-	printf "${green}======testing for $num random numbers $times times======${reset}\n"
+	printf "${yell}======testing for $num random numbers $times times======${reset}\n"
 	echo "average: " $((avg/$times))
 	echo "min: " $min
 	echo "max: " $max
 	echo
 }
 
+check() {
+	local num=$1
+	local times=$2
+
+	local pass=true
+	printf "${yell}======checking for $num random numbers $times times======${reset}\n"
+	for ((i=0; i<times; i++)); do
+		arg=$(shuf -i0-$max_range -n$num)
+		op=$($bin $arg | $checker $arg)
+		if [[ "$op" == "KO" ]]; then
+			pass=false
+		fi
+	done
+	if $pass; then
+		printf "${green}OK${reset}\n"
+	else
+		printf "${red}KO${reset}\n"
+	fi
+}
+
 main() {
+	check 3 1000
+	check 5 1000
 	test 3 1000
 	test 5 1000
 	test 100 100
