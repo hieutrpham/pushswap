@@ -60,7 +60,7 @@ static bool	is_valid_split(char *str)
 	while (split[i])
 	{
 		if (!is_valid_int_str(split[i]))
-			return (false);
+			return (free_split(split), false);
 		i++;
 	}
 	free_split(split);

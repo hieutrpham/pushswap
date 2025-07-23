@@ -43,9 +43,9 @@ int	main(int ac, char **av)
 	stack_a = build_stack(ac, av);
 	if (!stack_a)
 		return (EXIT_FAILURE);
+	check_dup(stack_a);
 	if (is_sorted(stack_a->arr, stack_a->size))
 		return (destroy_stack(stack_a), EXIT_SUCCESS);
-	check_dup(stack_a);
 	stack_b = build_empty_stack(stack_a->size);
 	if (!stack_b)
 		return (destroy_stack(stack_a), EXIT_FAILURE);
