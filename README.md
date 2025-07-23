@@ -1,6 +1,6 @@
 # Push Swap
 
-## Project Overview
+## 🚀 Project Overview
 
 `Push Swap` is a 42 School project that challenges you to sort a stack of randomly generated unique numbers using a limited set of operations and two stacks: `Stack A` and `Stack B`. The goal is to sort all numbers in `Stack A` in ascending order, with `Stack B` ending up empty, all while minimizing the total number of operations performed.
 
@@ -17,7 +17,7 @@ The allowed operations are:
 * `rrb`: reverse rotate b - shift all elements of stack B down by one. The last element becomes the first.
 * `rrr`: rra and rrb at the same time.
 
-## Algorithm Description
+## 🤖 Algorithm Description
 
 This project implements an optimized sorting algorithm designed to efficiently handle a varying number of elements (from 3 to 500+). The core strategy combines **value-based chunking**, **cost-efficient element selection**, and **ordered insertion** into the auxiliary stack.
 
@@ -56,10 +56,16 @@ To further minimize the total operation count, a **post-processing step** is app
 
 This comprehensive algorithm provides an effective and performant solution for the Push Swap problem, balancing computational complexity with operation count minimization.
 
-## How to Build
+## 🔨 How to Build and Test
 
-To compile the project, navigate to the root directory and run `make`:
+To compile the project, navigate to the root directory and run `make`. I've also created a simple shell script to test the program.
 
 ```bash
 make
+./test
 ```
+
+* This is the result of my algorithm. It could get just below 700 operations for 100 numbers and over 6700 operations for 500 numbers
+
+![result image](result.png)
+

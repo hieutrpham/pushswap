@@ -67,7 +67,8 @@ int	find_min(t_stack *stack)
 int	find_closest_smaller(t_stack *stack_a, t_stack *stack_b)
 {
 	int	value_a;
-	int	dist;
+	long long	dist;
+	long long	dist2;
 	int	top_b;
 	int	index;
 
@@ -79,10 +80,10 @@ int	find_closest_smaller(t_stack *stack_a, t_stack *stack_b)
 	dist = value_a - stack_b->arr[top_b];
 	while (top_b < stack_b->size)
 	{
-		if (value_a - stack_b->arr[top_b] <= dist
-			&& value_a > stack_b->arr[top_b])
+		dist2 = value_a - stack_b->arr[top_b];
+		if (dist2 <= dist && value_a > stack_b->arr[top_b])
 		{
-			dist = value_a - stack_b->arr[top_b];
+			dist = dist2;
 			index = top_b;
 		}
 		top_b++;

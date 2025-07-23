@@ -13,13 +13,13 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +48 src/main.c
+badd +34 src/main.c
 badd +23 Makefile
 badd +117 libft/libft.h
-badd +20 libft/ft_split.c
+badd +22 libft/ft_split.c
 badd +14 libft/ft_count_word.c
 badd +48 libft/Makefile
-badd +100 include/push_swap.h
+badd +96 include/push_swap.h
 badd +2 term://~/hive/pushswap//350770:/usr/bin/fish
 badd +44 src/quicksort.c
 badd +83 TODO.md
@@ -33,7 +33,7 @@ badd +19 libft/ft_sort.c
 badd +1 src/parser.csrc/operations.c
 badd +108 src/stack_op.c
 badd +5 libft/ft_memmove.c
-badd +116 src/algo.c
+badd +71 src/algo.c
 badd +44 libft/ft_math.c
 badd +1 libft/mak
 badd +47 libft/ft_isany.c
@@ -49,25 +49,30 @@ badd +14 libft/ft_putendl_fd.c
 badd +14 libft/ft_putstr_fd.c
 badd +11 libft/ft_putnbr_fd.c
 badd +5 test
-badd +109 src/algo_helper.c
+badd +80 src/algo_helper.c
 badd +18 src/post_algo.c
 badd +14 src/tuning.c
 badd +23 src/minisort.c
 badd +1 src/utils
-badd +64 README.md
+badd +62 README.md
+badd +1 exception.txt
 argglobal
 %argdel
 $argadd src/main.c
 set stal=2
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
-edit src/main.c
+edit src/algo_helper.c
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
 1wincmd h
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
 wincmd w
 let &splitbelow = s:save_splitbelow
 let &splitright = s:save_splitright
@@ -78,10 +83,13 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
+exe '1resize ' . ((&lines * 35 + 36) / 73)
+exe 'vert 1resize ' . ((&columns * 137 + 137) / 274)
+exe '2resize ' . ((&lines * 34 + 36) / 73)
 exe 'vert 2resize ' . ((&columns * 137 + 137) / 274)
+exe 'vert 3resize ' . ((&columns * 136 + 137) / 274)
 argglobal
-balt src/utils.c
+balt src/main.c
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -92,17 +100,40 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 48 - ((47 * winheight(0) + 35) / 70)
+let s:l = 80 - ((21 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 48
-normal! 0
+keepjumps 80
+normal! 041|
 wincmd w
 argglobal
-if bufexists(fnamemodify("README.md", ":p")) | buffer README.md | else | edit README.md | endif
+if bufexists(fnamemodify("src/main.c", ":p")) | buffer src/main.c | else | edit src/main.c | endif
 if &buftype ==# 'terminal'
-  silent file README.md
+  silent file src/main.c
+endif
+balt src/algo_helper.c
+setlocal foldmethod=manual
+setlocal foldexpr=0
+setlocal foldmarker={{{,}}}
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldenable
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 55 - ((26 * winheight(0) + 17) / 34)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 55
+normal! 018|
+wincmd w
+argglobal
+if bufexists(fnamemodify("src/algo.c", ":p")) | buffer src/algo.c | else | edit src/algo.c | endif
+if &buftype ==# 'terminal'
+  silent file src/algo.c
 endif
 balt src/main.c
 setlocal foldmethod=manual
@@ -115,20 +146,22 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 35) / 70)
+let s:l = 85 - ((59 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 0
+keepjumps 85
+normal! 029|
 wincmd w
-2wincmd w
-exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
+exe '1resize ' . ((&lines * 35 + 36) / 73)
+exe 'vert 1resize ' . ((&columns * 137 + 137) / 274)
+exe '2resize ' . ((&lines * 34 + 36) / 73)
 exe 'vert 2resize ' . ((&columns * 137 + 137) / 274)
+exe 'vert 3resize ' . ((&columns * 136 + 137) / 274)
 tabnext
-edit libft/ft_split.c
+edit include/push_swap.h
 argglobal
-balt src/errors.c
+balt libft/ft_split.c
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -139,12 +172,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 20 - ((19 * winheight(0) + 35) / 70)
+let s:l = 96 - ((46 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 20
-normal! 023|
+keepjumps 96
+normal! 0
 tabnext 1
 set stal=1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
