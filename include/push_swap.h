@@ -54,7 +54,7 @@ enum
 };
 
 /**********************stack_op.c**********************
- * stack operation
+ * stack operations
  ******************************************************/
 void				swap(t_stack *stack, t_node **list, int op);
 void				push(t_stack *from_stack, t_stack *to_stack, t_node **list,
@@ -65,13 +65,13 @@ void				do_rotate(t_stack *stack, t_node **list, int op,
 						int num_move);
 
 /************************parser.c**********************
- * helper functions to handle parsing
+ * functions to handle parsing
  ******************************************************/
 t_stack				*build_stack(int ac, char **av);
 t_stack				*build_empty_stack(unsigned int size);
 
 /************************errors.c**********************
- * helper functions to handle errors
+ * functions to handle errors
  ******************************************************/
 void				check_input(int ac, char **av);
 void				check_dup(t_stack *stack);
@@ -105,19 +105,12 @@ void				free_data(t_stack *stack_a, t_stack *stack_b, t_node *list);
 void				destroy_stack(t_stack *stack);
 
 /************************post_algo.c**********************
- * print instructions and optimization to eliminate redundance instruction
+ * print instructions and optimization to eliminate redundant instructions
  ********************************************************/
 void				print_list(t_node *list);
-void				print_count(int count_ra, int count_rb, int op);
-
-/************************tuning.c**********************
- * print instructions and optimization to eliminate redundance instruction
- ********************************************************/
-int					tune_ra_rb(t_node **list);
-int					tune_rra_rrb(t_node **list);
 
 /************************minisort.c**********************
- * print instructions and optimization to eliminate redundance instruction
+ * sorting small stacks
  ********************************************************/
 void				sort_two(t_stack *stack, t_node **list);
 void				sort_three(t_stack *stack, t_node **list);
