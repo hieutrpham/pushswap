@@ -141,4 +141,3 @@ void	print_list(t_node *list)
 		list = list->next;
 	}
 }
-

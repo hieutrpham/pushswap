@@ -12,36 +12,36 @@
 
 #include "libft.h"
 
-int ft_sqrt(int num)
+int	ft_sqrt(int num)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i * i <= num)
 	{
 		if (i * i > num)
-			break;
+			break ;
 		i++;
 	}
-	return i - 1;
+	return (i - 1);
 }
 
-int ft_min(int num1, int num2)
+int	ft_min(int num1, int num2)
 {
 	if (num1 > num2)
-		return num2;
+		return (num2);
 	else if (num2 >= num1)
-		return num1;
+		return (num1);
 	else
-		return INT_MIN;
+		return (INT_MIN);
 }
 
-int ft_max(int num1, int num2)
+int	ft_max(int num1, int num2)
 {
 	if (num1 >= num2)
-		return num1;
+		return (num1);
 	else if (num2 > num1)
-		return num2;
+		return (num2);
 	else
-		return INT_MAX;
+		return (INT_MAX);
 }

@@ -15,60 +15,73 @@
 /* @brief: check whether an int array is sorted in ascending order
  * @return: true if sorted, false if not
  */
-bool is_sorted(int *arr, int size)
+bool	is_sorted(int *arr, int size)
 {
-	int i = 0;
-	int j = 0;
+	int	i;
+	int	j;
 
+	i = 0;
+	j = 0;
 	if (size <= 1)
-		return true;
+		return (true);
 	while (i < size - 1)
 	{
 		j = i + 1;
 		if (arr[i] > arr[j])
-			return false;
+			return (false);
 		i++;
 	}
-	return true;
+	return (true);
 }
 
-static void swap(int* a, int* b) {
-    int t = *a;
-    *a = *b;
-    *b = t;
+static void	swap(int *a, int *b)
+{
+	int	t;
+
+	t = *a;
+	*a = *b;
+	*b = t;
 }
 
-static int partition(int *arr, int low, int high) {
-    int pivot = arr[high];
-    int i = low - 1;
-	int j = low;
+static int	partition(int *arr, int low, int high)
+{
+	int	pivot;
+	int	i;
+	int	j;
 
+	pivot = arr[high];
+	i = low - 1;
+	j = low;
 	while (j <= high - 1)
 	{
-        if (arr[j] < pivot) {
-            i++;
-            swap(&arr[i], &arr[j]);
-        }
+		if (arr[j] < pivot)
+		{
+			i++;
+			swap(&arr[i], &arr[j]);
+		}
 		j++;
 	}
-    swap(&arr[i + 1], &arr[high]);
-    return i + 1;
+	swap(&arr[i + 1], &arr[high]);
+	return (i + 1);
 }
 
-void quicksort(int *arr, int low, int high) {
-    if (low < high) {
-		int pi;
-		pi = partition(arr, low, high);
-        quicksort(arr, low, pi - 1);
-        quicksort(arr, pi + 1, high);
-    }
-}
-
-void bubblesort(int *arr, int size)
+void	quicksort(int *arr, int low, int high)
 {
-	int i;
-	int j;
-	int temp;
+	int	pi;
+
+	if (low < high)
+	{
+		pi = partition(arr, low, high);
+		quicksort(arr, low, pi - 1);
+		quicksort(arr, pi + 1, high);
+	}
+}
+
+void	bubblesort(int *arr, int size)
+{
+	int	i;
+	int	j;
+	int	temp;
 
 	temp = 0;
 	i = 0;

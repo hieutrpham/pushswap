@@ -13,16 +13,12 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <limits.h>
 # include <stdarg.h>
+# include <stdbool.h>
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdbool.h>
-# include <limits.h>
-
-#ifndef ABS
-# define ABS(value) ((((value) > 0) - ((value) < 0)) * (value))
-#endif
 
 /* ft_isany.c */
 int					ft_isalpha(int c);
@@ -119,12 +115,12 @@ int					ft_ulen(unsigned int n);
 int					ft_ilen(int n);
 
 /* sort functions in ft_sort.c*/
-bool is_sorted(int *arr, int size);
-void quicksort(int *arr, int low, int high);
-void bubblesort(int *arr, int size);
+bool				is_sorted(int *arr, int size);
+void				quicksort(int *arr, int low, int high);
+void				bubblesort(int *arr, int size);
 
 /* math functions in ft_math.c */
-int ft_sqrt(int num);
-int ft_min(int num1, int num2);
-int ft_max(int num1, int num2);
+int					ft_sqrt(int num);
+int					ft_min(int num1, int num2);
+int					ft_max(int num1, int num2);
 #endif

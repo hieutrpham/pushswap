@@ -49,8 +49,8 @@ int	ft_atoi(const char *nptr)
 
 long	ft_atol(const char *nptr)
 {
-	int	i;
-	int	sign;
+	int		i;
+	int		sign;
 	long	atol;
 
 	atol = 0;
