@@ -19,7 +19,7 @@ badd +117 libft/libft.h
 badd +22 libft/ft_split.c
 badd +14 libft/ft_count_word.c
 badd +48 libft/Makefile
-badd +120 include/push_swap.h
+badd +81 include/push_swap.h
 badd +2 term://~/hive/pushswap//350770:/usr/bin/fish
 badd +44 src/quicksort.c
 badd +84 TODO.md
@@ -48,13 +48,13 @@ badd +15 libft/ft_putchar_fd.c
 badd +14 libft/ft_putendl_fd.c
 badd +14 libft/ft_putstr_fd.c
 badd +11 libft/ft_putnbr_fd.c
-badd +5 test
+badd +51 test
 badd +1 src/algo_helper.c
 badd +18 src/post_algo.c
 badd +14 src/tuning.c
 badd +23 src/minisort.c
 badd +1 src/utils
-badd +62 README.md
+badd +69 README.md
 badd +1 exception.txt
 argglobal
 %argdel
@@ -84,10 +84,10 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 exe '1resize ' . ((&lines * 35 + 36) / 73)
-exe 'vert 1resize ' . ((&columns * 137 + 137) / 274)
+exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
 exe '2resize ' . ((&lines * 34 + 36) / 73)
-exe 'vert 2resize ' . ((&columns * 137 + 137) / 274)
-exe 'vert 3resize ' . ((&columns * 136 + 137) / 274)
+exe 'vert 2resize ' . ((&columns * 136 + 137) / 274)
+exe 'vert 3resize ' . ((&columns * 137 + 137) / 274)
 argglobal
 balt src/main.c
 setlocal foldmethod=manual
@@ -131,11 +131,77 @@ keepjumps 62
 normal! 0
 wincmd w
 argglobal
-if bufexists(fnamemodify("README.md", ":p")) | buffer README.md | else | edit README.md | endif
+if bufexists(fnamemodify("test", ":p")) | buffer test | else | edit test | endif
 if &buftype ==# 'terminal'
-  silent file README.md
+  silent file test
 endif
-balt src/algo.c
+balt README.md
+setlocal foldmethod=manual
+setlocal foldexpr=0
+setlocal foldmarker={{{,}}}
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldenable
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 51 - ((50 * winheight(0) + 35) / 70)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 51
+normal! 017|
+wincmd w
+exe '1resize ' . ((&lines * 35 + 36) / 73)
+exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
+exe '2resize ' . ((&lines * 34 + 36) / 73)
+exe 'vert 2resize ' . ((&columns * 136 + 137) / 274)
+exe 'vert 3resize ' . ((&columns * 137 + 137) / 274)
+tabnext
+edit include/push_swap.h
+let s:save_splitbelow = &splitbelow
+let s:save_splitright = &splitright
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+let &splitbelow = s:save_splitbelow
+let &splitright = s:save_splitright
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+wincmd =
+argglobal
+balt libft/ft_split.c
+setlocal foldmethod=manual
+setlocal foldexpr=0
+setlocal foldmarker={{{,}}}
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldenable
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 81 - ((34 * winheight(0) + 35) / 70)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 81
+normal! 022|
+wincmd w
+argglobal
+if bufexists(fnamemodify("Makefile", ":p")) | buffer Makefile | else | edit Makefile | endif
+if &buftype ==# 'terminal'
+  silent file Makefile
+endif
+balt include/push_swap.h
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -153,33 +219,9 @@ normal! zt
 keepjumps 1
 normal! 0
 wincmd w
-3wincmd w
-exe '1resize ' . ((&lines * 35 + 36) / 73)
-exe 'vert 1resize ' . ((&columns * 137 + 137) / 274)
-exe '2resize ' . ((&lines * 34 + 36) / 73)
-exe 'vert 2resize ' . ((&columns * 137 + 137) / 274)
-exe 'vert 3resize ' . ((&columns * 136 + 137) / 274)
-tabnext
-edit include/push_swap.h
-argglobal
-balt libft/ft_split.c
-setlocal foldmethod=manual
-setlocal foldexpr=0
-setlocal foldmarker={{{,}}}
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldenable
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 120 - ((67 * winheight(0) + 35) / 70)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 120
-normal! 022|
-tabnext 1
+2wincmd w
+wincmd =
+tabnext 2
 set stal=1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -187,6 +229,8 @@ endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20
 let &shortmess = s:shortmess_save
+let &winminheight = s:save_winminheight
+let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)

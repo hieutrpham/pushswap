@@ -25,37 +25,39 @@ OBJ = $(SRC:.c=.o)
 OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
 DEP = $(addprefix $(OBJ_PATH), $(SRC:.c=.d))
 
-all: $(OBJ_PATH) $(LIBFT) $(NAME)
+.SECONDARY: $(OBJS) $(DEP)
 
-$(OBJ_PATH):
-	@mkdir -p $(OBJ_PATH)
+all: $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	@mkdir -p $(OBJ_PATH)
 	@$(CC) $(INCLUDE) -c $< -o $@
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(LIBFT)
 	@$(CC) $^ -o $@ $(LIBFT)
 	@printf "$(GREEN)$(NAME) created successfully!$(RESET)\n"
 
 $(LIBFT):
-	make -C $(LIBFT_PATH)
+	@make -C $(LIBFT_PATH)
+	@printf "$(GREEN)$(LIBFT) created successfully!$(RESET)\n"
 
 clean:
-	rm -rf $(OBJ_PATH) $(DEP) 
-	make -C $(LIBFT_PATH) clean
+	@rm -rf $(OBJ_PATH) $(DEP) 
+	@make -C $(LIBFT_PATH) clean
+	@printf "$(GREEN)clean$(RESET)\n"
 
 fclean: clean
-	rm -f $(NAME)
-	make -C $(LIBFT_PATH) fclean
+	@rm -f $(NAME)
+	@make -C $(LIBFT_PATH) fclean
+	@printf "$(GREEN)fclean$(RESET)\n"
 
 re: fclean all
 
 debug:
-	make CC="$(CC) -g" re
+	@make CC="$(CC) -g" re
 
 asan:
-	make CC="$(CC) -fsanitize=address" re
+	@make CC="$(CC) -fsanitize=address" re
 
 .PHONY: all re clean fclean debug asan
-
 -include $(DEP)
