@@ -80,5 +80,5 @@ typedef struct s_stack {
         * proceed to move the number with the least number of moves
     * if after all the chunks are processed, stack a still might have some numbers left, sort them based on the number of elements (3, 5 or more)
 
-* code the minisort for 3 and 5 random numbers
+* - [X] code the minisort for 3 and 5 random numbers
 * - [X] eliminate redundant operations. eg: ra rb -> rr, rra rrb -> rrr 

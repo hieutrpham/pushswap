@@ -116,4 +116,7 @@ void				sort_two(t_stack *stack, t_node **list);
 void				sort_three(t_stack *stack, t_node **list);
 void				sort_five(t_stack *stack_a, t_stack *stack_b,
 						t_node **list);
+
+// NOTE: test function
+void print_stack(t_stack *stack, char c);
 #endif

@@ -13,16 +13,16 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +34 src/main.c
+badd +33 src/main.c
 badd +23 Makefile
 badd +117 libft/libft.h
 badd +22 libft/ft_split.c
 badd +14 libft/ft_count_word.c
 badd +48 libft/Makefile
-badd +96 include/push_swap.h
+badd +120 include/push_swap.h
 badd +2 term://~/hive/pushswap//350770:/usr/bin/fish
 badd +44 src/quicksort.c
-badd +83 TODO.md
+badd +84 TODO.md
 badd +29 libft/ft_atoi.c
 badd +95 src/errors.c
 badd +25 src/parser.c
@@ -33,7 +33,7 @@ badd +19 libft/ft_sort.c
 badd +1 src/parser.csrc/operations.c
 badd +108 src/stack_op.c
 badd +5 libft/ft_memmove.c
-badd +71 src/algo.c
+badd +15 src/algo.c
 badd +44 libft/ft_math.c
 badd +1 libft/mak
 badd +47 libft/ft_isany.c
@@ -49,7 +49,7 @@ badd +14 libft/ft_putendl_fd.c
 badd +14 libft/ft_putstr_fd.c
 badd +11 libft/ft_putnbr_fd.c
 badd +5 test
-badd +80 src/algo_helper.c
+badd +137 src/algo_helper.c
 badd +18 src/post_algo.c
 badd +14 src/tuning.c
 badd +23 src/minisort.c
@@ -100,19 +100,19 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 80 - ((21 * winheight(0) + 17) / 35)
+let s:l = 137 - ((22 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 80
-normal! 041|
+keepjumps 137
+normal! 09|
 wincmd w
 argglobal
 if bufexists(fnamemodify("src/main.c", ":p")) | buffer src/main.c | else | edit src/main.c | endif
 if &buftype ==# 'terminal'
   silent file src/main.c
 endif
-balt src/algo_helper.c
+balt TODO.md
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -123,19 +123,19 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 55 - ((26 * winheight(0) + 17) / 34)
+let s:l = 39 - ((22 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 55
-normal! 018|
+keepjumps 39
+normal! 0
 wincmd w
 argglobal
 if bufexists(fnamemodify("src/algo.c", ":p")) | buffer src/algo.c | else | edit src/algo.c | endif
 if &buftype ==# 'terminal'
   silent file src/algo.c
 endif
-balt src/main.c
+balt exception.txt
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -146,13 +146,14 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 85 - ((59 * winheight(0) + 35) / 70)
+let s:l = 51 - ((36 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 85
-normal! 029|
+keepjumps 51
+normal! 056|
 wincmd w
+3wincmd w
 exe '1resize ' . ((&lines * 35 + 36) / 73)
 exe 'vert 1resize ' . ((&columns * 137 + 137) / 274)
 exe '2resize ' . ((&lines * 34 + 36) / 73)
@@ -172,12 +173,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 96 - ((46 * winheight(0) + 35) / 70)
+let s:l = 120 - ((67 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 96
-normal! 0
+keepjumps 120
+normal! 022|
 tabnext 1
 set stal=1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

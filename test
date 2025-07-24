@@ -7,9 +7,17 @@ red=$(tput setaf 9)
 
 bin="./push_swap"
 checker="./checker_linux"
-
-
+exception="-219637250 -470370703 34950365 -126310329 -1355179666 214488796 -1438005774 -1924502727 -1345409344 145633791 -1999352909 -1226576909 173681251 -896058709 -1707454823 -1713187832 -1794120699 -1051535247"
 max_range=2147483647
+
+randomize() {
+	shuf -i0-$max_range -n$1 | while IFS=' ' read -r num; do
+	if ((num % 2 != 0))
+	then ((num*=-1))
+	fi
+	echo $num
+done
+}
 
 test() {
 	local num=$1
@@ -19,7 +27,7 @@ test() {
 	local avg=0
 
 	for ((i=0; i<times; i++)); do
-		arg=$(shuf -i0-$max_range -n$num)
+		arg=$(randomize $num | tr '\n' ' ')
 		op=$($bin $arg | wc -l)
 		if ((op <= min)); then min=$op; fi
 		if ((op >= max)); then max=$op; fi
@@ -36,14 +44,12 @@ test() {
 check() {
 	local num=$1
 	local times=$2
-	local exception="-1859761718 -921617209 -721965472 -1228332651 -540227896 -84718388 -424517562 -1745696666 -219637250 -470370703 34950365 -126310329 -1706975971 -233394038 -1671281496 -1355179666 214488796 -1438005774 -1924502727 -1345409344 -1972455262 -120423570 -196985305 -1424405852 124201937 -145633791 -1226576909 173681251 -896058709 -1707454823 -1713187832 116516494 173781875"
 
 	local pass=true
 	printf "${yell}======checking for $num random numbers $times times======${reset}\n"
 	for ((i=0; i<times; i++)); do
-		# arg=$(shuf -i0-$max_range -n$num)
-		
-		op=$($bin $exception | $checker $exception)
+		arg=$(randomize $num | tr '\n' ' ')
+		op=$($bin $arg | $checker $arg)
 		if [[ "$op" == "KO" ]]; then
 			pass=false
 		fi
@@ -56,15 +62,14 @@ check() {
 }
 
 main() {
-	check 3 1
-	# check 3 1000
-	# check 5 1000
-	# check 100 100
-	# check 500 100
-	# test 3 1000
-	# test 5 1000
-	# test 100 100
-	# test 500 100
+	check 3 1000
+	check 5 1000
+	check 100 100
+	check 500 100
+	test 3 1000
+	test 5 1000
+	test 100 100
+	test 500 100
 }
 
-main
+main "$@"

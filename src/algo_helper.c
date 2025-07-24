@@ -77,10 +77,10 @@ int	find_closest_smaller(t_stack *stack_a, t_stack *stack_b)
 	value_a = stack_a->arr[stack_a->top];
 	while (value_a < stack_b->arr[top_b])
 		top_b++;
-	dist = value_a - stack_b->arr[top_b];
+	dist = (long long)value_a - (long long)stack_b->arr[top_b];
 	while (top_b < stack_b->size)
 	{
-		dist2 = value_a - stack_b->arr[top_b];
+		dist2 = (long long)value_a - (long long)stack_b->arr[top_b];
 		if (dist2 <= dist && value_a > stack_b->arr[top_b])
 		{
 			dist = dist2;
