@@ -33,9 +33,9 @@ static void	init_sort(t_stack *stack_a, t_stack *stack_b, t_node **list)
 	}
 }
 
-void print_stack(t_stack *stack, char c)
+void	print_stack(t_stack *stack, char c)
 {
-	int i;
+	int	i;
 
 	i = stack->top;
 	if (c == 'a')

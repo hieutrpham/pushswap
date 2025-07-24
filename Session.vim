@@ -49,7 +49,7 @@ badd +14 libft/ft_putendl_fd.c
 badd +14 libft/ft_putstr_fd.c
 badd +11 libft/ft_putnbr_fd.c
 badd +5 test
-badd +137 src/algo_helper.c
+badd +118 src/algo_helper.c
 badd +18 src/post_algo.c
 badd +14 src/tuning.c
 badd +23 src/minisort.c
@@ -100,12 +100,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 137 - ((22 * winheight(0) + 17) / 35)
+let s:l = 16 - ((15 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 137
-normal! 09|
+keepjumps 16
+normal! 03|
 wincmd w
 argglobal
 if bufexists(fnamemodify("src/main.c", ":p")) | buffer src/main.c | else | edit src/main.c | endif
@@ -123,11 +123,11 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 39 - ((22 * winheight(0) + 17) / 34)
+let s:l = 62 - ((16 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 39
+keepjumps 62
 normal! 0
 wincmd w
 argglobal
@@ -146,12 +146,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 51 - ((36 * winheight(0) + 35) / 70)
+let s:l = 112 - ((23 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 51
-normal! 056|
+keepjumps 112
+normal! 03|
 wincmd w
 3wincmd w
 exe '1resize ' . ((&lines * 35 + 36) / 73)

@@ -66,11 +66,11 @@ int	find_min(t_stack *stack)
  */
 int	find_closest_smaller(t_stack *stack_a, t_stack *stack_b)
 {
-	int	value_a;
+	int			value_a;
 	long long	dist;
 	long long	dist2;
-	int	top_b;
-	int	index;
+	int			top_b;
+	int			index;
 
 	top_b = stack_b->top;
 	index = -1;

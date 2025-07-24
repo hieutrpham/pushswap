@@ -118,5 +118,5 @@ void				sort_five(t_stack *stack_a, t_stack *stack_b,
 						t_node **list);
 
 // NOTE: test function
-void print_stack(t_stack *stack, char c);
+void				print_stack(t_stack *stack, char c);
 #endif
