@@ -33,7 +33,7 @@ badd +19 libft/ft_sort.c
 badd +1 src/parser.csrc/operations.c
 badd +108 src/stack_op.c
 badd +5 libft/ft_memmove.c
-badd +15 src/algo.c
+badd +119 src/algo.c
 badd +44 libft/ft_math.c
 badd +1 libft/mak
 badd +47 libft/ft_isany.c
@@ -49,7 +49,7 @@ badd +14 libft/ft_putendl_fd.c
 badd +14 libft/ft_putstr_fd.c
 badd +11 libft/ft_putnbr_fd.c
 badd +5 test
-badd +118 src/algo_helper.c
+badd +1 src/algo_helper.c
 badd +18 src/post_algo.c
 badd +14 src/tuning.c
 badd +23 src/minisort.c
@@ -131,11 +131,11 @@ keepjumps 62
 normal! 0
 wincmd w
 argglobal
-if bufexists(fnamemodify("src/algo.c", ":p")) | buffer src/algo.c | else | edit src/algo.c | endif
+if bufexists(fnamemodify("README.md", ":p")) | buffer README.md | else | edit README.md | endif
 if &buftype ==# 'terminal'
-  silent file src/algo.c
+  silent file README.md
 endif
-balt exception.txt
+balt src/algo.c
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -146,12 +146,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 112 - ((23 * winheight(0) + 35) / 70)
+let s:l = 1 - ((0 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 112
-normal! 03|
+keepjumps 1
+normal! 0
 wincmd w
 3wincmd w
 exe '1resize ' . ((&lines * 35 + 36) / 73)
