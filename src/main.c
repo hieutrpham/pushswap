@@ -49,6 +49,26 @@ void	print_stack(t_stack *stack, char c)
 	}
 }
 
+/*@brief: to build stack b
+ */
+static t_stack	*build_empty_stack(unsigned int size)
+{
+	t_stack	*stack;
+
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
+	stack->arr = ft_calloc(size, sizeof(int));
+	if (!stack->arr)
+		return (free(stack), NULL);
+	stack->size = size;
+	stack->top = -1;
+	stack->len = 0;
+	stack->chunk_size = 0;
+	stack->sorted_arr = NULL;
+	return (stack);
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;

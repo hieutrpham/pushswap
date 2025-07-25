@@ -82,3 +82,9 @@ typedef struct s_stack {
 
 * - [X] code the minisort for 3 and 5 random numbers
 * - [X] eliminate redundant operations. eg: ra rb -> rr, rra rrb -> rrr 
+
+## Evaluation fix
+
+* fix header includes
+* fix after malloc fail it needs to free everything
+* fix malloc for store_op if failed to create the node.

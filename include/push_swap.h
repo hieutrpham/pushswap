@@ -68,7 +68,6 @@ void				do_rotate(t_stack *stack, t_node **list, int op,
  * functions to handle parsing
  ******************************************************/
 t_stack				*build_stack(int ac, char **av);
-t_stack				*build_empty_stack(unsigned int size);
 
 /************************errors.c**********************
  * functions to handle errors

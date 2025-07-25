@@ -4,7 +4,7 @@ SRC_PATH = src/
 OBJ_PATH = obj/
 LIBFT_PATH = ./libft/
 LIBFT = $(LIBFT_PATH)libft.a
-INCLUDE = -I. -Iinclude/
+INCLUDE = -I. -Iinclude/ -I$(LIBFT_PATH)
 
 GREEN := \033[32m
 RESET := \033[0m
