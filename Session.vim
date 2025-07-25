@@ -14,12 +14,12 @@ else
   set shortmess=aoO
 endif
 badd +33 src/main.c
-badd +23 Makefile
+badd +7 Makefile
 badd +117 libft/libft.h
 badd +22 libft/ft_split.c
 badd +14 libft/ft_count_word.c
 badd +48 libft/Makefile
-badd +81 include/push_swap.h
+badd +1 include/push_swap.h
 badd +2 term://~/hive/pushswap//350770:/usr/bin/fish
 badd +44 src/quicksort.c
 badd +84 TODO.md
@@ -54,7 +54,7 @@ badd +18 src/post_algo.c
 badd +14 src/tuning.c
 badd +23 src/minisort.c
 badd +1 src/utils
-badd +69 README.md
+badd +71 README.md
 badd +1 exception.txt
 argglobal
 %argdel
@@ -83,11 +83,11 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 35 + 36) / 73)
-exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
-exe '2resize ' . ((&lines * 34 + 36) / 73)
-exe 'vert 2resize ' . ((&columns * 136 + 137) / 274)
-exe 'vert 3resize ' . ((&columns * 137 + 137) / 274)
+exe '1resize ' . ((&lines * 31 + 32) / 65)
+exe 'vert 1resize ' . ((&columns * 119 + 120) / 240)
+exe '2resize ' . ((&lines * 30 + 32) / 65)
+exe 'vert 2resize ' . ((&columns * 119 + 120) / 240)
+exe 'vert 3resize ' . ((&columns * 120 + 120) / 240)
 argglobal
 balt src/main.c
 setlocal foldmethod=manual
@@ -100,7 +100,7 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 16 - ((15 * winheight(0) + 17) / 35)
+let s:l = 16 - ((13 * winheight(0) + 15) / 31)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -123,7 +123,7 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 62 - ((16 * winheight(0) + 17) / 34)
+let s:l = 62 - ((14 * winheight(0) + 15) / 30)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -146,18 +146,18 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 51 - ((50 * winheight(0) + 35) / 70)
+let s:l = 51 - ((44 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 51
 normal! 017|
 wincmd w
-exe '1resize ' . ((&lines * 35 + 36) / 73)
-exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
-exe '2resize ' . ((&lines * 34 + 36) / 73)
-exe 'vert 2resize ' . ((&columns * 136 + 137) / 274)
-exe 'vert 3resize ' . ((&columns * 137 + 137) / 274)
+exe '1resize ' . ((&lines * 31 + 32) / 65)
+exe 'vert 1resize ' . ((&columns * 119 + 120) / 240)
+exe '2resize ' . ((&lines * 30 + 32) / 65)
+exe 'vert 2resize ' . ((&columns * 119 + 120) / 240)
+exe 'vert 3resize ' . ((&columns * 120 + 120) / 240)
 tabnext
 edit include/push_swap.h
 let s:save_splitbelow = &splitbelow
@@ -176,7 +176,8 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-wincmd =
+exe 'vert 1resize ' . ((&columns * 119 + 120) / 240)
+exe 'vert 2resize ' . ((&columns * 120 + 120) / 240)
 argglobal
 balt libft/ft_split.c
 setlocal foldmethod=manual
@@ -189,7 +190,7 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 81 - ((34 * winheight(0) + 35) / 70)
+let s:l = 81 - ((30 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -197,11 +198,11 @@ keepjumps 81
 normal! 022|
 wincmd w
 argglobal
-if bufexists(fnamemodify("Makefile", ":p")) | buffer Makefile | else | edit Makefile | endif
+if bufexists(fnamemodify("README.md", ":p")) | buffer README.md | else | edit README.md | endif
 if &buftype ==# 'terminal'
-  silent file Makefile
+  silent file README.md
 endif
-balt include/push_swap.h
+balt TODO.md
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -212,15 +213,16 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 35) / 70)
+let s:l = 71 - ((42 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
+keepjumps 71
 normal! 0
 wincmd w
 2wincmd w
-wincmd =
+exe 'vert 1resize ' . ((&columns * 119 + 120) / 240)
+exe 'vert 2resize ' . ((&columns * 120 + 120) / 240)
 tabnext 2
 set stal=1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

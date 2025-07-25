@@ -67,5 +67,6 @@ make
 
 * This is the result of my algorithm. It could get just below 700 operations for 100 numbers and over 6700 operations for 500 numbers
 
-![result image](result.png)
+![result image](./media/result.png)
 
+<video src="./media/100.webm" controls muted loop></video>
