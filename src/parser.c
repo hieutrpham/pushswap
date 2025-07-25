@@ -51,12 +51,11 @@ static int	*build_from_args(int ac, char **av)
 	return (arr);
 }
 
-static t_stack *build_from_string(char **av)
+static t_stack	*build_from_string(char **av)
 {
 	t_stack	*stack;
 
 	stack = malloc(sizeof(t_stack));
-
 	if (!stack)
 		return (NULL);
 	stack->arr = build_from_split(av[1]);
@@ -73,12 +72,11 @@ static t_stack *build_from_string(char **av)
 	return (stack);
 }
 
-static t_stack *build_from_ac(int ac, char **av)
+static t_stack	*build_from_ac(int ac, char **av)
 {
 	t_stack	*stack;
 
 	stack = malloc(sizeof(t_stack));
-
 	if (!stack)
 		return (NULL);
 	stack->arr = build_from_args(ac, av);
