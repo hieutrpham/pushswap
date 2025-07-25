@@ -63,7 +63,7 @@ static t_stack	*build_from_string(char **av)
 		return (free(stack), NULL);
 	stack->sorted_arr = build_from_split(av[1]);
 	if (!stack->sorted_arr)
-		return (free(stack), NULL);
+		return (free(stack->arr), free(stack), NULL);
 	stack->size = ft_count_word(av[1], ' ');
 	quicksort(stack->sorted_arr, 0, stack->size - 1);
 	stack->chunk_size = ft_sqrt(stack->size) * 2;
@@ -84,7 +84,7 @@ static t_stack	*build_from_ac(int ac, char **av)
 		return (free(stack), NULL);
 	stack->sorted_arr = build_from_args(ac, av);
 	if (!stack->sorted_arr)
-		return (free(stack), NULL);
+		return (free(stack->arr), free(stack), NULL);
 	stack->size = ac - 1;
 	quicksort(stack->sorted_arr, 0, stack->size - 1);
 	stack->chunk_size = ft_sqrt(stack->size) * 2;
