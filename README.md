@@ -69,4 +69,4 @@ make
 
 ![result image](./media/result.png)
 
-<video src="./media/100.webm" controls muted loop></video>
+![visualize 100 number](./media/vis100.gif)
