@@ -7,8 +7,15 @@ red=$(tput setaf 9)
 
 bin="./push_swap"
 checker="./checker_linux"
-exception="-219637250 -470370703 34950365 -126310329 -1355179666 214488796 -1438005774 -1924502727 -1345409344 145633791 -1999352909 -1226576909 173681251 -896058709 -1707454823 -1713187832 -1794120699 -1051535247"
 max_range=2147483647
+
+fatal() {
+	echo "$@" >&2
+	exit 1
+}
+
+if ! [[ -f $checker ]]; then fatal "checker doesn't exist"; fi
+if ! [[ -f $bin ]]; then fatal "binary doesn't exist"; fi
 
 randomize() {
 	shuf -i0-$max_range -n$1 | while IFS=' ' read -r num; do

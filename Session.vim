@@ -54,7 +54,7 @@ badd +18 src/post_algo.c
 badd +14 src/tuning.c
 badd +23 src/minisort.c
 badd +1 src/utils
-badd +71 README.md
+badd +63 README.md
 badd +1 exception.txt
 argglobal
 %argdel
@@ -83,11 +83,11 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 31 + 32) / 65)
-exe 'vert 1resize ' . ((&columns * 119 + 120) / 240)
-exe '2resize ' . ((&lines * 30 + 32) / 65)
-exe 'vert 2resize ' . ((&columns * 119 + 120) / 240)
-exe 'vert 3resize ' . ((&columns * 120 + 120) / 240)
+exe '1resize ' . ((&lines * 35 + 36) / 73)
+exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
+exe '2resize ' . ((&lines * 34 + 36) / 73)
+exe 'vert 2resize ' . ((&columns * 136 + 137) / 274)
+exe 'vert 3resize ' . ((&columns * 137 + 137) / 274)
 argglobal
 balt src/main.c
 setlocal foldmethod=manual
@@ -100,7 +100,7 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 16 - ((13 * winheight(0) + 15) / 31)
+let s:l = 16 - ((15 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -123,7 +123,7 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 62 - ((14 * winheight(0) + 15) / 30)
+let s:l = 62 - ((16 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -146,18 +146,18 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 51 - ((44 * winheight(0) + 31) / 62)
+let s:l = 51 - ((50 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 51
 normal! 017|
 wincmd w
-exe '1resize ' . ((&lines * 31 + 32) / 65)
-exe 'vert 1resize ' . ((&columns * 119 + 120) / 240)
-exe '2resize ' . ((&lines * 30 + 32) / 65)
-exe 'vert 2resize ' . ((&columns * 119 + 120) / 240)
-exe 'vert 3resize ' . ((&columns * 120 + 120) / 240)
+exe '1resize ' . ((&lines * 35 + 36) / 73)
+exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
+exe '2resize ' . ((&lines * 34 + 36) / 73)
+exe 'vert 2resize ' . ((&columns * 136 + 137) / 274)
+exe 'vert 3resize ' . ((&columns * 137 + 137) / 274)
 tabnext
 edit include/push_swap.h
 let s:save_splitbelow = &splitbelow
@@ -176,8 +176,8 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 119 + 120) / 240)
-exe 'vert 2resize ' . ((&columns * 120 + 120) / 240)
+exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
+exe 'vert 2resize ' . ((&columns * 137 + 137) / 274)
 argglobal
 balt libft/ft_split.c
 setlocal foldmethod=manual
@@ -190,7 +190,7 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 81 - ((30 * winheight(0) + 31) / 62)
+let s:l = 81 - ((34 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -198,11 +198,11 @@ keepjumps 81
 normal! 022|
 wincmd w
 argglobal
-if bufexists(fnamemodify("README.md", ":p")) | buffer README.md | else | edit README.md | endif
+if bufexists(fnamemodify("test", ":p")) | buffer test | else | edit test | endif
 if &buftype ==# 'terminal'
-  silent file README.md
+  silent file test
 endif
-balt TODO.md
+balt README.md
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -213,16 +213,16 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 71 - ((42 * winheight(0) + 31) / 62)
+let s:l = 1 - ((0 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 71
+keepjumps 1
 normal! 0
 wincmd w
 2wincmd w
-exe 'vert 1resize ' . ((&columns * 119 + 120) / 240)
-exe 'vert 2resize ' . ((&columns * 120 + 120) / 240)
+exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
+exe 'vert 2resize ' . ((&columns * 137 + 137) / 274)
 tabnext 2
 set stal=1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

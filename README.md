@@ -1,8 +1,12 @@
 # Push Swap
 
+This is one of my favorite projects so far (after Pipex and let's forget fdf exists). I get to learn about stacks and how to implement one. I get to learn about algorithm which I've come up with a good enough solution for the project. It doesn't perform as well as Turk or as consistent as Radix. But after seeing so many of my peers just go with the established algorithms, I've wanted to do something different. It is based on insertion sort with a bunch of optimizations to improve its performance.
+
 ## 🚀 Project Overview
 
 `Push Swap` is a 42 School project that challenges you to sort a stack of randomly generated unique numbers using a limited set of operations and two stacks: `Stack A` and `Stack B`. The goal is to sort all numbers in `Stack A` in ascending order, with `Stack B` ending up empty, all while minimizing the total number of operations performed.
+
+![visualize 100 number](./media/vis100.gif)
 
 The allowed operations are:
 * `sa`: swap a - swap the first two elements of stack A.
@@ -68,5 +72,3 @@ make
 * This is the result of my algorithm. It could get just below 700 operations for 100 numbers and over 6700 operations for 500 numbers
 
 ![result image](./media/result.png)
-
-![visualize 100 number](./media/vis100.gif)
