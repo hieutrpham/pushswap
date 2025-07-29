@@ -31,7 +31,7 @@ static bool	is_valid_int_str(char *str)
 	int	i;
 
 	i = 0;
-	if (str[i] == '+' || str[i] == '-')
+	if ((str[i] == '+' || str[i] == '-') && ft_strlen(str) > 1)
 		i++;
 	while (str[i])
 	{

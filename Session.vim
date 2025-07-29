@@ -13,13 +13,13 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +27 src/main.c
+badd +1 src/main.c
 badd +5 Makefile
 badd +117 libft/libft.h
 badd +22 libft/ft_split.c
 badd +14 libft/ft_count_word.c
 badd +48 libft/Makefile
-badd +62 include/push_swap.h
+badd +1 include/push_swap.h
 badd +2 term://~/hive/pushswap//350770:/usr/bin/fish
 badd +44 src/quicksort.c
 badd +90 TODO.md
@@ -116,11 +116,11 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 63 - ((37 * winheight(0) + 35) / 70)
+let s:l = 67 - ((41 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 63
+keepjumps 67
 normal! 017|
 wincmd w
 2wincmd w
